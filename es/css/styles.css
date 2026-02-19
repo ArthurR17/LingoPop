@@ -785,6 +785,21 @@ p {
     margin-top: 8px;
 }
 
+.price-conversion {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.04);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+.offer-card.premium .price-conversion {
+    background: rgba(16, 185, 129, 0.12);
+    color: #047857;
+}
+
 .premium-btn {
     background: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
     position: relative;
