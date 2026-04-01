@@ -41,249 +41,245 @@
     ></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oferta Especial - Hangul | Coreano Nativo</title>
-    <meta name="description" content="Parabéns pela sua compra! Aproveite esta oferta exclusiva: Coreano Nativo - Hangul - O alfabeto Coreano. Curso online gravado com professora nativa, por R$ 297 à vista ou 12x de R$ 24,75.">
+    <title>Oferta exclusiva K-Beauty | Pele de Porcelana</title>
+    <meta name="description" content="Parabéns pela compra no Material de Coreano! Oferta única: Guia Pele de Porcelana — rotina coreana em 10 passos, ingredientes e produtos acessíveis no Brasil.">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="images/Flag_of_South_Korea.svg">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="css/all.min.css">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
-        .upsell-alert {
-            background: linear-gradient(135deg, #10B981, #059669);
-            color: #fff;
+        .kbeauty-badge-group { flex-wrap: wrap; }
+        .kbenefit-list { list-style: none; padding: 0; margin: 1.25rem 0 0; }
+        .kbenefit-list li {
+            display: flex; gap: 12px; align-items: flex-start;
+            margin-bottom: 14px; padding: 12px 14px;
+            background: rgba(255,255,255,0.85); border-radius: 12px;
+            border-left: 4px solid #EC4899;
+        }
+        .kbenefit-list li i { color: #EC4899; margin-top: 2px; flex-shrink: 0; }
+        .urgency-box {
+            max-width: 520px;
+            margin: 0 auto 32px;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 4px 6px rgba(0,0,0,0.07),
+                0 20px 50px rgba(236, 72, 153, 0.35),
+                0 0 0 1px rgba(255,255,255,0.8) inset;
             text-align: center;
-            padding: 12px 0;
-            font-weight: 600;
+            position: relative;
+        }
+        .urgency-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #EC4899, #F472B6, #A855F7, #EC4899);
+            background-size: 200% 100%;
+            animation: urgency-shine 3s ease infinite;
+        }
+        @keyframes urgency-shine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .urgency-box__ribbon {
+            background: linear-gradient(135deg, #BE185D 0%, #EC4899 50%, #DB2777 100%);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 12px 16px;
+            margin: 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+        }
+        .urgency-box__inner {
+            padding: 28px 24px 26px;
+        }
+        .urgency-box__tagline {
+            margin: 0 0 14px;
+            color: #6b7280;
             font-size: 0.95rem;
+            font-weight: 500;
         }
-        .thank-you-hero {
-            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
-            padding: 60px 0 80px;
-            text-align: center;
-        }
-        .thank-you-hero h1 {
-            color: #fff;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        .thank-you-hero .congrats {
-            font-size: 1.5rem;
-            color: #FFD700;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .thank-you-hero .stop-line {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 25px 0 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        .thank-you-hero .gift-text {
-            font-size: 1.2rem;
-            color: #F0F0F0;
-            margin-bottom: 35px;
-        }
-        .upsell-buttons {
+        .urgency-box__pricing {
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 6px;
         }
-        .upsell-buttons .cta-button.primary {
-            padding: 18px 35px;
-            font-size: 1.15rem;
+        .urgency-box__was-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            margin-bottom: 2px;
         }
-        .upsell-buttons .cta-button.secondary {
-            background: rgba(255,255,255,0.25);
-            border: 2px solid #fff;
-            color: #fff;
+        .urgency-box .old {
+            text-decoration: line-through;
+            color: #9ca3af;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0 0 8px;
         }
-        .upsell-buttons .cta-button.secondary:hover {
-            background: rgba(255,255,255,0.35);
+        .urgency-box__por {
+            font-size: 1rem;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 2px;
         }
-        .about-professor {
-            background: #f8f9fa;
-            padding: 50px 0;
+        .urgency-box .new {
+            font-size: 2.85rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 0;
+            background: linear-gradient(135deg, #BE185D, #EC4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #BE185D;
+            letter-spacing: -0.02em;
+            animation: urgency-pulse 2.2s ease-in-out infinite;
         }
-        .about-professor .container {
-            max-width: 800px;
+        @keyframes urgency-pulse {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.02); filter: brightness(1.05); }
         }
-        .about-professor h2 {
-            margin-bottom: 20px;
+        .urgency-box__hint {
+            margin: 12px 0 0;
+            font-size: 0.88rem;
+            color: #6b7280;
         }
-        .about-professor p {
-            margin-bottom: 12px;
+        .urgency-box__notice {
+            margin-top: 20px;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, #FDF2F8, #FAE8FF);
+            border-radius: 12px;
+            border: 1px solid rgba(236, 72, 153, 0.25);
+            font-size: 0.9rem;
+            color: #4b5563;
+            line-height: 1.5;
             text-align: left;
         }
-        .about-professor .professor-photo-wrap {
-            text-align: center;
-            margin-bottom: 25px;
+        .urgency-box__notice i {
+            color: #DB2777;
+            margin-right: 8px;
         }
-        .about-professor .professor-photo-wrap img {
-            width: 140px;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #6C5CE7;
-            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+        .urgency-box__notice strong {
+            color: #9D174D;
         }
-        .single-testimonial {
-            max-width: 700px;
-            margin: 0 auto;
+        @media (max-width: 480px) {
+            .urgency-box .new { font-size: 2.25rem; }
+            .urgency-box__inner { padding: 22px 18px 20px; }
+            .urgency-box__ribbon { font-size: 0.75rem; }
         }
-        .author-recommendation .testimonial-header {
-            align-items: center;
-        }
-        .author-recommendation .testimonial-info strong {
-            display: block;
-            color: #6C5CE7;
-        }
+        .decline-upsell { display: block; text-align: center; margin-top: 18px; color: rgba(255,255,255,0.75); font-size: 0.9rem; }
+        .decline-upsell a { color: #fff; text-decoration: underline; }
     </style>
 </head>
 <body>
-    <!-- Oferta exclusiva Banner -->
     <div class="top-banner">
         <div class="container">
-            <p>🎁 OFERTA EXCLUSIVA PARA VOCÊ</p>
+            <p>✨ OFERTA EXCLUSIVA SÓ PARA QUEM ACABOU DE COMPRAR O MATERIAL DE COREANO</p>
         </div>
     </div>
-<!-- Thank You + Upsell Hero -->
-    <section class="thank-you-hero">
-        <div class="container">
-            <p class="congrats">Parabéns! Sua compra foi aprovada!</p>
-            <h1><img src="images/bandeira.png" alt="Bandeira da Coreia do Sul" style="width: 40px; height: 40px; vertical-align: middle;"> Obrigado por confiar em nós</h1>
-            <p class="stop-line">PARE! Tenho um presente especial para você.</p>
-            <p class="gift-text">Como você acabou de garantir seu material, preparei uma condição especial para você dominar de vez o alfabeto coreano com o curso <strong>Coreano Nativo - Hangul - O alfabeto Coreano</strong>. Não perca!</p>
-            <div class="upsell-buttons">
-                <a href="https://go.hotmart.com/R104402689A" class="cta-button primary">
-                    Quero Aproveitar a Oferta <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="https://consumer.hotmart.com/main" class="cta-button secondary">
-                    Não, quero só meu material
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Benefits (highlights) -->
-    <section class="benefits">
+    <section class="hero">
         <div class="container">
-            <h2>O que você leva no curso de Hangul</h2>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h3>Aulas com professora nativa</h3>
-                    <p>Conteúdo autêntico e pronúncia correta direto da Coreia do Sul.</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1><img src="images/bandeira.png" alt="Coreia do Sul" style="width: 40px; height: 40px; vertical-align: middle;"> Parabéns! O Material de Coreano já está no caminho do seu e-mail</h1>
+                    <p class="hero-subtitle">Sua decisão de dominar o coreano com o Material de Coreano foi excelente — o material já está sendo enviado para você.</p>
+                    <p class="hero-subtitle">Mas, sejamos honestos: enquanto você assiste aos doramas favoritos, não é só o idioma que chama atenção. Aquela <strong>pele radiante</strong>, sem poros aparentes e impecável nas atrizes — a famosa <strong>“Glass Skin”</strong> — parece um sonho distante, não é?</p>
+                    <div class="hero-trust kbeauty-badge-group">
+                        <div class="trust-badge"><i class="fas fa-gem"></i><span>Não é só genética</span></div>
+                        <div class="trust-badge"><i class="fas fa-spa"></i><span>K-Beauty na prática</span></div>
+                        <div class="trust-badge"><i class="fas fa-book-open"></i><span>Guia mastigável</span></div>
+                    </div>
+                    <a href="#guia" class="cta-button primary hero-cta">Ver o guia “Pele de Porcelana”</a>
                 </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-book"></i></div>
-                    <h3>Material próprio</h3>
-                    <p>E-books, exercícios práticos e exemplos para fixar cada letra do Hangul.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
-                    <h3>Curso 100% online</h3>
-                    <p>Aulas gravadas para você estudar no seu ritmo, pausar, voltar e revisar quando quiser.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-globe-asia"></i></div>
-                    <h3>Pronúncia correta</h3>
-                    <p>Foco total na pronúncia de cada vogal e consoante para você ler e falar com segurança.</p>
+                <div class="hero-image">
+                    <img src="images/porcelana.png" alt="Guia K-Beauty Pele de Porcelana" class="hero-img" onerror="this.src='images/coreanoimg.png'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About the Professor -->
-    <section class="about-professor">
+    <section class="product-presentation" id="guia">
         <div class="container">
-            <h2>Sobre a professora</h2>
-            <div class="professor-photo-wrap">
-                <img src="images/perfilprofessora.png" alt="Unnie Coreana - Professora de Coreano" class="profile-img">
-            </div>
-            <p>Eu nasci e vivo na Coreia do Sul.</p>
-            <p>Sou professora de língua Chinesa e Coreana há mais de 8 anos.</p>
-            <p>Sou uma das professoras de idiomas muito ativa na área de Daejeon - Coreia do Sul.</p>
-            <p>Vivi no Brasil, Portugal, China e Hong Kong além da Coreia. Minha vivência internacional e formação me ajudaram a entender sobre o aprendizado de uma língua, pronúncias e metodologias de ensino.</p>
-            <p>Trabalhei também com tradução simultânea Coreano/Chinês e tradução de jornal durante mais de 10 anos.</p>
-            <p><strong>Espero encontrar vocês na minha aula de coreano.</strong></p>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://pay.hotmart.com/E82455518L?sck=HOTMART_PRODUCT_PAGE&off=qilpazu8&hotfeature=32&_gl=1*1mlzbjc*_gcl_aw*R0NMLjE3NzA3NzIyOTUuQ2owS0NRaUF5NnZNQmhEQ0FSSXNBSzhyT2dtdXh4THNHWTRFbGVBR3dub3I4U004RTVEMGoydjFjREFqS2ZtcW1IdE9ZNW1vMk5uWjhaSWFBdE9CRUFMd193Y0I.*_gcl_au*MTg0Mjg4NzYwMy4xNzY5NzA1MjYxLjEyODg2NDc5NjMuMTc3MDg1MDIwNi4xNzcwODUxNzM3*FPAU*MTg0Mjg4NzYwMy4xNzY5NzA1MjYx*_ga*Mzc3Nzk5NTU0LjE3Njk3MDUyNjE.*_ga_GQH2V1F11Q*czE3NzA5MDY1NzUkbzUxJGcxJHQxNzcwOTA3MTExJGo2MCRsMCRoMA..&bid=1770907114739" class="cta-button primary">
-                    Quero Aprender com a Unnie Coreana <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Presentation - Upsell (Curso) -->
-    <section class="product-presentation">
-        <div class="container">
-            <h2>🇰🇷 Coreano Nativo - Hangul - O alfabeto Coreano</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px; color: #6C5CE7;"><strong>Investimento: 12x de R$ 24,75 ou R$ 297 à vista</strong></p>
+            <h2>A revelação: não é só filtro nem “sorte asiática”</h2>
             <div class="product-content">
                 <div class="product-mockup">
-                    <a href="https://pay.hotmart.com/E82455518L?sck=HOTMART_PRODUCT_PAGE&off=qilpazu8&hotfeature=32&_gl=1*1mlzbjc*_gcl_aw*R0NMLjE3NzA3NzIyOTUuQ2owS0NRaUF5NnZNQmhEQ0FSSXNBSzhyT2dtdXh4THNHWTRFbGVBR3dub3I4U004RTVEMGoydjFjREFqS2ZtcW1IdE9ZNW1vMk5uWjhaSWFBdE9CRUFMd193Y0I.*_gcl_au*MTg0Mjg4NzYwMy4xNzY5NzA1MjYxLjEyODg2NDc5NjMuMTc3MDg1MDIwNi4xNzcwODUxNzM3*FPAU*MTg0Mjg4NzYwMy4xNzY5NzA1MjYx*_ga*Mzc3Nzk5NTU0LjE3Njk3MDUyNjE.*_ga_GQH2V1F11Q*czE3NzA5MDY1NzUkbzUxJGcxJHQxNzcwOTA3MTExJGo2MCRsMCRoMA..&bid=1770907114739"><img src="images/capacoreanonativo.jpg" alt="Coreano Nativo - Hangul - O alfabeto Coreano" class="mockup-img" style="cursor: pointer;"></a>
+                    <img src="images/porcelana.png" alt="Pele de Porcelana — rotina coreana" class="mockup-img" onerror="this.src='images/coreanoimg.png'">
                 </div>
                 <div class="product-description">
-                    <p>Se você está começando no coreano, aprender o <strong>Hangul</strong> é o passo mais importante. Neste curso, a Unnie Coreana — professora nativa com mais de 8 anos de experiência — vai te ensinar, passo a passo, cada vogal e consoante do alfabeto, sempre com foco na pronúncia correta.</p>
-                    <p>As aulas são 100% online e gravadas, para você assistir quando e onde quiser, podendo pausar, voltar e revisar quantas vezes precisar. Você vai se surpreender com a rapidez com que será capaz de <strong>ler e escrever em coreano</strong>, entendendo as diferenças sutis de som entre o português e o coreano.</p>
-                    <h3 style="margin-top: 25px;">Destaques do Curso:</h3>
-                    <p>✅ Curso focado exclusivamente no alfabeto Hangul<br>✅ Professora nativa guiando você letra por letra<br>✅ Aulas gravadas para estudar no seu ritmo<br>✅ Material próprio com exercícios práticos e exemplos<br>✅ Possibilidade de revisar quantas vezes quiser até fixar tudo</p>
+                    <p>Muita gente acha que <strong>Glass Skin</strong> é só genética ou efeito de câmera. <strong>Não é.</strong> O segredo está numa filosofia milenar de cuidados — a <strong>K-Beauty</strong> — que você pode adaptar em casa, <strong>independentemente do tipo de pele ou da idade</strong>.</p>
+                    <p>Esqueça horas perdidas em tutoriais confusos no YouTube ou no TikTok que às vezes <em>pioram</em> a barreira da pele. Você precisa de <strong>técnica certa</strong> e da <strong>ordem certa dos ingredientes</strong> — não necessariamente de produtos importados caros.</p>
+
+                    <h3 style="margin-top: 1.5rem;">📖 Guia definitivo “Pele de Porcelana: O Segredo da Rotina Coreana de 10 Passos”</h3>
+                    <p>Apresento o guia que vai além da teoria: prático, mastigável e direto ao ponto. Tudo o que importa para replicar a essência da rotina coreana no seu banheiro.</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://go.hotmart.com/R104402689A" class="cta-button primary large">
-                    Quero Aproveitar por R$ 297 ou 12x de R$ 24,75 <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+
+            <h2 style="margin-top: 2.5rem;">O que você vai dominar neste guia</h2>
+            <ul class="kbenefit-list">
+                <li><i class="fas fa-trophy"></i><span><strong>A filosofia K-Beauty:</strong> por que a saúde da pele vem antes da maquiagem; princípios que transformam textura e resiliência da pele com o tempo.</span></li>
+                <li><i class="fas fa-pump-soap"></i><span><strong>Os 10 passos lendários (desmistificados):</strong> o quê, o porquê e o como de cada etapa — da <strong>dupla limpeza (double cleanse)</strong> até a <strong>proteção solar</strong> aplicada do jeito certo.</span></li>
+                <li><i class="fas fa-flask"></i><span><strong>Dicionário de ingredientes-estrela:</strong> mucina de caracol, centella asiática, galactomyces, água de arroz, ginseng… o que buscar no rótulo e como ajudam a <strong>restaurar a barreira cutânea</strong>.</span></li>
+                <li><i class="fas fa-store"></i><span><strong>Lista curada de produtos acessíveis no Brasil:</strong> opções que você encontra em farmácias e e-commerces nacionais — sem precisar de marcas de luxo para ver resultado real.</span></li>
+                <li><i class="fas fa-sun"></i><span><strong>Rotina manhã × noite (simplificada):</strong> os 10 passos adaptados à correria do dia a dia brasileiro — <strong>menos de 15 minutos</strong> e ainda assim consistente.</span></li>
+                <li><i class="fas fa-times-circle"></i><span><strong>O guia de erros fatais:</strong> pare de combinar ou usar produtos que <strong>destroem a barreira</strong>, geram acne ou sensibilidade — e saiba o que fazer no lugar.</span></li>
+            </ul>
         </div>
     </section>
 
-    <!-- Depoimento do autor do material -->
-    <section class="testimonials">
+    <section class="oferta">
         <div class="container">
-            <h2>Quem criou o material que você acabou de adquirir recomenda</h2>
-            <div class="testimonials-grid single-testimonial">
-                <div class="testimonial featured author-recommendation">
-                    <div class="testimonial-header">
-                        <div class="testimonial-photo">
-                            <img src="images/LingoPop.png" alt="Autor do material" class="profile-img">
-                        </div>
-                        <div class="testimonial-info">
-                            <strong>Quem preparou seu material</strong>
-                            <span>Autor dos Materiais Coreano</span>
-                        </div>
+            <h2>Garanta sua “Pele de Porcelana” agora</h2>
+            <p style="text-align: center; color: #fff; font-size: 1.05rem; margin-bottom: 24px;">
+                Como você acabou de investir no Material de Coreano e mostra que ama a cultura coreana, esta é uma <strong>experiência completa</strong> — guia + clareza de rotina — em condição especial.
+            </p>
+
+            <div class="urgency-box">
+                <p class="urgency-box__ribbon">🎁 Oferta exclusiva de acesso</p>
+                <div class="urgency-box__inner">
+                    <p class="urgency-box__tagline">Normalmente vendido separadamente — hoje só nesta página</p>
+                    <div class="urgency-box__pricing">
+                        <span class="urgency-box__was-label">De</span>
+                        <span class="old">R$ 97,00</span>
+                        <span class="urgency-box__por">por</span>
+                        <span class="new">R$ 29,90</span>
                     </div>
-                    <div class="testimonial-content">
-                        <p>"Você acabou de dar o primeiro passo com o material que preparei com carinho — e isso me deixa muito feliz! Para aproveitar ainda mais tudo o que está nos e-books e guias, eu recomendo de coração o curso <strong>Coreano Nativo - Hangul - O alfabeto Coreano</strong>. Ele é o complemento perfeito: enquanto o material que você adquiriu te dá base e vocabulário, o curso aprofunda cada letra do Hangul, a pronúncia e a leitura, com aulas gravadas pela própria Unnie Coreana. Quem estuda com o material e adiciona esse curso de Hangul evolui muito mais rápido e com muito mais segurança na hora de ler e escrever em coreano."</p>
-                        <div class="testimonial-result">
-                            <span class="result-badge">✅ Recomendação para complementar seus estudos</span>
-                        </div>
+                    <p class="urgency-box__hint">Pagamento único · guia digital completo</p>
+                    <div class="urgency-box__notice">
+                        <i class="fas fa-bolt"></i>
+                        <strong>Oferta única de checkout.</strong> Ela aparece só agora, nesta página — ao sair, você perde esta condição. Garanta o guia enquanto estiver disponível.
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://pay.hotmart.com/E82455518L?sck=HOTMART_PRODUCT_PAGE&off=qilpazu8&hotfeature=32&_gl=1*1mlzbjc*_gcl_aw*R0NMLjE3NzA3NzIyOTUuQ2owS0NRaUF5NnZNQmhEQ0FSSXNBSzhyT2dtdXh4THNHWTRFbGVBR3dub3I4U004RTVEMGoydjFjREFqS2ZtcW1IdE9ZNW1vMk5uWjhaSWFBdE9CRUFMd193Y0I.*_gcl_au*MTg0Mjg4NzYwMy4xNzY5NzA1MjYxLjEyODg2NDc5NjMuMTc3MDg1MDIwNi4xNzcwODUxNzM3*FPAU*MTg0Mjg4NzYwMy4xNzY5NzA1MjYx*_ga*Mzc3Nzk5NTU0LjE3Njk3MDUyNjE.*_ga_GQH2V1F11Q*czE3NzA5MDY1NzUkbzUxJGcxJHQxNzcwOTA3MTExJGo2MCRsMCRoMA..&bid=1770907114739" class="cta-button primary large">
-                    Aproveitar a Oferta Agora <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+
+            <div id="hotmart-sales-funnel"></div>
+
+            <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+            <script>
+            checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+            </script>
+
+            <p class="decline-upsell">
+                Prefere só o material que comprou? <a href="https://consumer.hotmart.com/main">Continuar sem esta oferta</a>
+            </p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
