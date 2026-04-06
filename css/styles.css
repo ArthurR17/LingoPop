@@ -48,23 +48,23 @@ p {
 
 /* Top Banner */
 .top-banner {
-    background: linear-gradient(135deg, #6C5CE7, #8B5CF6);
-    color: #fff;
+    background: linear-gradient(135deg, #FFE066, #FFD43B);
+    color: #3D2F00;
     text-align: center;
     padding: 8px 0;
     font-weight: 600;
     font-size: 0.9rem;
-    text-transform: uppercase;
+    text-transform: none;
     letter-spacing: 1px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(108, 92, 231, 0.3);
+    box-shadow: 0 2px 10px rgba(255, 212, 59, 0.45);
 }
 
 .top-banner p {
     margin: 0;
-    color: #fff;
+    color: #3D2F00;
 }
 
 /* Buttons */
