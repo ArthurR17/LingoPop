@@ -58,10 +58,10 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Black Friday Banner -->
+    <!-- Banner descuento del día -->
     <div class="top-banner">
         <div class="container">
-            <p>🔥 ¡Ofertas Exclusivas Black ya Disponibles!</p>
+            <p><b>🎉 Descuento especial — solo HOY, <span id="current-date">6 de abril</span></b></p>
         </div>
     </div>
     
@@ -500,6 +500,15 @@
         
         // Start countdown on page load
         window.addEventListener('DOMContentLoaded', () => {
+            const currentDateEl = document.getElementById('current-date');
+            if (currentDateEl) {
+                const today = new Date();
+                currentDateEl.textContent = today.toLocaleDateString('es-419', {
+                    day: 'numeric',
+                    month: 'long'
+                });
+            }
+
             startCountdown();
             setInterval(updateStockCount, 180000); // Update stock every 3 minutes
         });
