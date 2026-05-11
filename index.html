@@ -196,9 +196,9 @@
                             <li><i class="fas fa-check"></i><span class="feature-text">Garantia de 7 dias</span></li>
                         </ul>
                     </div>
-                    <a href="https://pay.hotmart.com/Y103781312G?checkoutMode=10" class="cta-button basic-cta">
+                    <button class="cta-button basic-cta">
                         Quero Começar Agora <i class="fas fa-arrow-right"></i>
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Premium Package -->
@@ -601,7 +601,111 @@
                 }
             });
         });
+
+
     </script>
 
+    <!-- Upsell Modal -->
+    <div id="upsell-modal" class="upsell-modal">
+        <div class="upsell-modal-content">
+            <button id="close-modal" class="close-modal">&times;</button>
+            
+            <div class="upsell-header">
+                <div class="upsell-icon">🌟</div>
+                <h2>Espera aí! Temos uma oferta especial para você</h2>
+            </div>
+
+            <div class="upsell-body">
+                <p class="upsell-main-text">
+                    Por apenas <strong>R$ 19,90</strong> a mais (em vez de R$ 29,90), leve o <strong>Pacote Premium</strong> com todo o conteúdo avançado!
+                </p>
+
+                <div class="upsell-benefits">
+                    <h3>✨ O que você ganha a mais no Premium:</h3>
+                    <ul>
+                        <li><i class="fas fa-star"></i> <strong>100 verbos coreanos</strong> mais usados e suas formas de escrever</li>
+                        <li><i class="fas fa-star"></i> <strong>200 palavras essenciais</strong> do dia a dia</li>
+                        <li><i class="fas fa-star"></i> <strong>Folha ideal para Treino de Escrita Hangul</strong></li>
+                        <li><i class="fas fa-star"></i> <strong>Folha Treino Hangul Completo</strong> com exercícios</li>
+                        <li><i class="fas fa-check-circle"></i> Todo o conteúdo do pacote básico</li>
+                        <li><i class="fas fa-check-circle"></i> Acesso imediato + Garantia de 7 dias</li>
+                    </ul>
+                </div>
+
+                <div class="upsell-pricing">
+                    <div class="price-comparison">
+                        <div class="price-item">
+                            <span class="label">Básico:</span>
+                            <span class="value">R$ 9,90</span>
+                        </div>
+                        <div class="price-item highlight">
+                            <span class="label">Premium:</span>
+                            <span class="value old">~~R$ 29,90~~</span>
+                            <span class="value">R$ 19,90</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="upsell-social-proof">+500 pessoas já escolheram o Premium nessa oferta especial!</p>
+            </div>
+
+            <div class="upsell-actions">
+                <button id="upgrade-premium" class="btn-upgrade">
+                    🎯 Sim! Quero o Premium por R$ 19,90
+                </button>
+                <button id="continue-basic" class="btn-continue">
+                    Prefiro ficar com o Básico (R$ 9,90)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Upsell Modal for Basic Package
+        document.addEventListener('DOMContentLoaded', function() {
+            const basicCtaButton = document.querySelector('.basic-cta');
+            const upsellModal = document.getElementById('upsell-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+            const continueBasicBtn = document.getElementById('continue-basic');
+            const upgradePremiumBtn = document.getElementById('upgrade-premium');
+
+            if (basicCtaButton) {
+                basicCtaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    upsellModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', function() {
+                    upsellModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            if (continueBasicBtn) {
+                continueBasicBtn.addEventListener('click', function() {
+                    window.location.href = 'https://pay.hotmart.com/Y103781312G?checkoutMode=10';
+                });
+            }
+
+            if (upgradePremiumBtn) {
+                upgradePremiumBtn.addEventListener('click', function() {
+                    window.location.href = 'https://pay.hotmart.com/V103795279D?off=efh5chhw&checkoutMode=10';
+                });
+            }
+
+            // Close modal when clicking outside
+            if (upsellModal) {
+                upsellModal.addEventListener('click', function(e) {
+                    if (e.target === upsellModal) {
+                        upsellModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+    </script>
 
 </body></html>
