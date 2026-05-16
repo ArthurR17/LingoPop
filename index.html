@@ -669,6 +669,20 @@
             const continueBasicBtn = document.getElementById('continue-basic');
             const upgradePremiumBtn = document.getElementById('upgrade-premium');
 
+            function buildCheckoutUrl(baseUrl) {
+                const destinationUrl = new URL(baseUrl);
+                const currentParams = new URLSearchParams(window.location.search);
+
+                // Keep checkout defaults from destination URL and append current tracking params.
+                currentParams.forEach(function(value, key) {
+                    if (!destinationUrl.searchParams.has(key)) {
+                        destinationUrl.searchParams.set(key, value);
+                    }
+                });
+
+                return destinationUrl.toString();
+            }
+
             if (basicCtaButton) {
                 basicCtaButton.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -686,13 +700,13 @@
 
             if (continueBasicBtn) {
                 continueBasicBtn.addEventListener('click', function() {
-                    window.location.href = 'https://pay.hotmart.com/Y103781312G?checkoutMode=10';
+                    window.location.href = buildCheckoutUrl('https://pay.hotmart.com/Y103781312G?checkoutMode=10');
                 });
             }
 
             if (upgradePremiumBtn) {
                 upgradePremiumBtn.addEventListener('click', function() {
-                    window.location.href = 'https://pay.hotmart.com/V103795279D?off=efh5chhw&checkoutMode=10';
+                    window.location.href = buildCheckoutUrl('https://pay.hotmart.com/V103795279D?off=efh5chhw&checkoutMode=10');
                 });
             }
 
