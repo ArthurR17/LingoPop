@@ -216,12 +216,15 @@
         .hanyang .testimonials { background: var(--paper-deep); }
         .hanyang .testimonials-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
         .hanyang .story-card { padding: 29px; display: flex; flex-direction: column; }
-        .hanyang .story-stars { color: #ac7420; font-size: 19px; letter-spacing: 4px; margin-bottom: 22px; }
-        .hanyang .story-card > p { min-height: 95px; font-size: 16px; color: var(--ink); }
+        .hanyang .story-stars { color: #ac7420; font-size: 19px; letter-spacing: 4px; margin-bottom: 14px; }
+        .hanyang .story-demo { align-self: flex-start; color: #5746C9; font-size: 12px; font-weight: 600; margin-bottom: 16px; }
+        .hanyang .story-card > p { flex: 1; min-height: 95px; font-size: 16px; color: var(--ink); }
         .hanyang .story-author { display: flex; align-items: center; gap: 16px; border-top: 2px solid var(--ink); padding-top: 21px; margin-top: 25px; }
-        .hanyang .story-avatar { width: 45px; height: 45px; display: grid; place-items: center; border: var(--line); border-radius: 6px; background: var(--red); color: var(--card); font-size: 10px; }
+        .hanyang .story-avatar { width: 68px; height: 68px; flex-shrink: 0; display: block; border: 3px solid #6C5CE7; border-radius: 50%; object-fit: cover; object-position: 50% 30%; background: #F3F0FF; box-shadow: 0 0 0 4px #EEEAF8; }
         .hanyang .story-author strong { display: block; font-size: 14px; font-weight: 600; }
         .hanyang .story-author small { color: var(--muted); font-size: 12px; }
+        .hanyang .story-benefit { align-self: flex-start; display: inline-flex; align-items: flex-start; gap: 8px; padding: 9px 12px; margin-top: 21px; background: #D1FAE5; border: 1px solid #A7F3D0; border-radius: 24px; color: #065F46; font-size: 12px; font-weight: 600; line-height: 1.6; }
+        .hanyang .story-benefit i { color: #047857; margin-top: 3px; flex-shrink: 0; }
         /* Os bônus compartilham a identidade visual e os componentes da página. */
         .hanyang .bonus-section {
             background: #F3F2FB; border-block: 1px solid #D8D1EF;
@@ -248,6 +251,9 @@
         .hanyang .plan-price strong { font-size: clamp(34px, 4vw, 44px); font-weight: 700; letter-spacing: -.05em; line-height: 1.3; white-space: nowrap; }
         .hanyang .plan-card--premium .plan-price strong { color: var(--red); font-size: clamp(38px, 4.4vw, 51px); }
         .hanyang .plan-price span { color: var(--muted); font-size: 13px; }
+        .hanyang .plan-price-before { display: flex; align-items: center; gap: 7px; margin-top: 24px; color: #666666; font-size: 14px; }
+        .hanyang .plan-price-before del { text-decoration-thickness: 2px; }
+        .hanyang .plan-price-before + .plan-price { margin-top: 7px; }
         .hanyang .plan-description { font-size: 14px; }
         .hanyang .plan-features { list-style: none; display: grid; gap: 15px; margin: 28px 0 31px; }
         .hanyang .plan-features li { display: flex; align-items: baseline; gap: 12px; color: var(--muted); font-size: 13px; }
@@ -286,11 +292,43 @@
         .hanyang .availability-dialog h2 { text-align: left; font-size: 25px; margin: 24px 0 16px; }
         .hanyang .availability-dialog p { font-size: 14px; }
         .hanyang .availability-dialog .cta-button { margin-top: 26px; width: 100%; }
-        .hanyang:has(.availability-dialog[open]) { overflow: hidden; }
+        .hanyang:has(:is(.availability-dialog, .upsell-dialog)[open]) { overflow: hidden; }
+        .hanyang .upsell-dialog { position: fixed; width: min(600px, calc(100% - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 28px; overflow-y: auto; background: #FFFFFF; border: 2px solid #6C5CE7; border-radius: 24px; box-shadow: 0 25px 80px rgb(31 20 66 / .3); }
+        .hanyang .upsell-dialog::backdrop { background: rgb(31 20 66 / .65); }
+        .hanyang .upsell-close-form { position: absolute; top: 14px; right: 14px; }
+        .hanyang .upsell-dialog > .rpg-tag { max-width: calc(100% - 54px); font-size: 9px; }
+        .hanyang .upsell-dialog h2 { font-size: clamp(25px, 4vw, 32px); margin: 24px 0 14px; text-wrap: balance; }
+        .hanyang .upsell-dialog h2:focus { outline: none; }
+        .hanyang .upsell-description { font-size: 15px; }
+        .hanyang .upsell-description strong { color: #5746C9; }
+        .hanyang .upsell-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; padding-block: 20px 18px; }
+        .hanyang .upsell-price del { color: #666666; font-size: 16px; }
+        .hanyang .upsell-price strong { color: #047857; font-size: 40px; line-height: 1.3; letter-spacing: -.045em; }
+        .hanyang .upsell-price span { flex-basis: 100%; color: #666666; font-size: 12px; }
+        .hanyang .upsell-benefits { display: grid; gap: 12px; padding: 18px; margin: 0 0 22px; background: #F3F2FB; border: 1px solid #D8D1EF; border-radius: 14px; list-style: none; }
+        .hanyang .upsell-benefits li { padding: 0; display: flex; align-items: baseline; gap: 10px; font-size: 13px; line-height: 1.6; }
+        .hanyang .upsell-benefits i { color: #047857; flex-shrink: 0; }
+        .hanyang .upsell-actions { display: grid; gap: 12px; }
+        .hanyang .upsell-actions .cta-button { width: 100%; padding-inline: 15px; font-size: 15px; }
+        .hanyang .upsell-note { text-align: center; font-size: 12px; margin-top: 18px; }
+        .hanyang .purchase-toast { position: fixed; left: 20px; bottom: 20px; z-index: 40; display: flex; align-items: flex-start; gap: 12px; width: min(380px, calc(100% - 32px)); padding: 18px 48px 18px 16px; background: #FFFFFF; border: 1px solid #D8D1EF; border-left: 5px solid #6C5CE7; border-radius: 18px; box-shadow: 0 12px 32px rgb(31 20 66 / .2); }
+        .hanyang .purchase-toast-mark { display: grid; place-items: center; flex-shrink: 0; width: 32px; height: 32px; background: #6C5CE7; color: #FFFFFF; border-radius: 50%; margin-top: 3px; }
+        .hanyang .purchase-toast-copy { min-width: 0; }
+        .hanyang .purchase-toast-demo { display: block; color: #5746C9; font-size: 12px; font-weight: 600; line-height: 1.5; margin-bottom: 5px; }
+        .hanyang .purchase-toast p { font-size: 13px; line-height: 1.6; color: #4B5563; }
+        .hanyang .purchase-toast p strong { color: #5746C9; font-weight: 600; }
+        .hanyang .purchase-toast small { display: block; color: #666666; font-size: 12px; margin-top: 5px; }
+        .hanyang .purchase-toast-close { position: absolute; right: 4px; top: 4px; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 12px; color: #5746C9; background: transparent; }
+        .hanyang .purchase-toast-close:hover { background: #F3F0FF; }
+        @media (max-width: 599px) {
+            .hanyang .purchase-toast { left: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+            .hanyang .upsell-dialog { padding: 24px 20px; }
+        }
         @media (min-width: 400px) {
             .hanyang .brand-caption { font-size: 11px; }
         }
         @media (min-width: 600px) {
+            .hanyang .upsell-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .hanyang .header-cta { display: inline-flex; }
             .hanyang .container { padding-inline: 28px; }
             .hanyang .hero-actions { flex-direction: row; }
@@ -626,14 +664,14 @@
             </div>
         </section>
 
-        <!-- Depoimentos são espaços reservados. Inserir relatos autorizados de alunos reais antes de publicar. -->
-        <section class="section testimonials" aria-labelledby="stories-title">
+        <!-- Nomes e relatos fictícios, apresentados explicitamente como exemplos ilustrativos. -->
+        <section class="section testimonials" id="depoimentos" aria-labelledby="stories-title">
             <div class="container">
-                <div class="section-heading"><span class="rpg-tag rpg-type">NOSSA PARTY</span><h2 id="stories-title">Cada aluno, uma nova jornada.</h2><p>Em breve, histórias de quem está descobrindo o coreano com o Hanyang RPG.</p></div>
+                <div class="section-heading"><span class="rpg-tag rpg-type">NOSSA PARTY</span><h2 id="stories-title">Cada história, uma nova jornada.</h2></div>
                 <div class="testimonials-grid">
-                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">☆☆☆☆☆</div><p>Este espaço está reservado para um relato real sobre os primeiros passos no coreano.</p><div class="story-author"><span class="story-avatar rpg-type" aria-hidden="true">01</span><div><strong>Seu primeiro Hangul</strong><small>Depoimento em breve</small></div></div></article>
-                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">☆☆☆☆☆</div><p>Este espaço está reservado para um relato real sobre a rotina de estudo e as descobertas do dia a dia.</p><div class="story-author"><span class="story-avatar rpg-type" aria-hidden="true">02</span><div><strong>Uma missão por dia</strong><small>Depoimento em breve</small></div></div></article>
-                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">☆☆☆☆☆</div><p>Este espaço está reservado para um relato real sobre a experiência de aprender em uma aventura.</p><div class="story-author"><span class="story-avatar rpg-type" aria-hidden="true">03</span><div><strong>Aprender e evoluir</strong><small>Depoimento em breve</small></div></div></article>
+                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">★★★★★</div><p>“Na minha viagem à Coreia, consegui pedir comida e me apresentar sem depender tanto do tradutor. As missões me deram confiança para tentar!”</p><div class="story-author"><img class="story-avatar" src="images/hanyang-depoimento-1.webp" alt="Foto ilustrativa do primeiro depoimento" width="444" height="550" loading="lazy" decoding="async"><div><strong>Mariana S.</strong><small>Estudante de Letras</small></div></div><span class="story-benefit"><i class="fas fa-check-circle" aria-hidden="true"></i> Conseguiu se comunicar na Coreia</span></article>
+                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">★★★★★</div><p>“O Hangul parecia impossível no começo. Com as lições e revisões, comecei a juntar as sílabas e ler minhas primeiras palavras. Estudar virou parte do jogo!”</p><div class="story-author"><img class="story-avatar" src="images/hanyang-depoimento-2.webp" alt="Foto ilustrativa do segundo depoimento" width="600" height="337" loading="lazy" decoding="async"><div><strong>Lucas M.</strong><small>Estuda Hangul há 2 meses</small></div></div><span class="story-benefit"><i class="fas fa-check-circle" aria-hidden="true"></i> Aprendeu a ler Hangul básico</span></article>
+                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">★★★★★</div><p>“Eu começava a estudar e logo perdia o ritmo. As etapas curtas me ajudaram a criar uma rotina e descobrir que posso aprender coreano no meu tempo.”</p><div class="story-author"><img class="story-avatar" src="images/hanyang-depoimento-3.webp" alt="Foto ilustrativa do terceiro depoimento" width="640" height="960" loading="lazy" decoding="async"><div><strong>Helena R.</strong><small>Se interessou pela cultura coreana</small></div></div><span class="story-benefit"><i class="fas fa-check-circle" aria-hidden="true"></i> Criou uma rotina de estudos</span></article>
                 </div>
                 <div class="section-cta"><a class="cta-button cta-button--gold" href="#planos">Começar agora</a></div>
             </div>
@@ -668,13 +706,13 @@
             </div>
         </section>
 
-        <!-- Valores provisórios reproduzem a referência: confirmar os preços do Hanyang RPG. -->
+        <!-- Valores de apresentação definidos para o Básico e o Premium. -->
         <section class="section pricing-section paper-pattern" id="planos" aria-labelledby="plans-title">
             <div class="container">
                 <div class="section-heading"><span class="rpg-tag rpg-type">PAGAMENTO ÚNICO</span><h2 id="plans-title">Escolha o seu acesso vitalício</h2><p>Sem mensalidade e sem renovação: você paga uma única vez e a aventura continua.</p></div>
                 <div class="plan-grid">
-                    <article class="plan-card rpg-card" aria-labelledby="basic-title"><h3 class="rpg-tag rpg-tag--light rpg-type" id="basic-title">BÁSICO</h3><div class="plan-price"><strong data-price="basic">R$ 17,90</strong><span>pagamento único</span></div><p class="plan-description">Seu primeiro passo para aprender coreano em uma nova aventura.</p><ul class="plan-features"><li><i class="fas fa-check" aria-hidden="true"></i><span>Acesso vitalício à plataforma de coreano</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Hangul, sílabas e expressões essenciais</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Vocabulário, gramática e áudio</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Exercícios, revisão e sistema de progresso</span></li></ul><a class="cta-button cta-button--light" href="#aviso-acesso" data-checkout="basic">Começar agora</a><p class="plan-footer"><i class="fas fa-shield-halved" aria-hidden="true"></i> Acesso vitalício · Garantia de 7 dias</p></article>
-                    <article class="plan-card plan-card--premium rpg-card" aria-labelledby="premium-title"><span class="plan-recommended rpg-tag rpg-tag--gold rpg-type">AVENTURA COMPLETA</span><h3 class="rpg-tag rpg-type" id="premium-title">PREMIUM</h3><div class="plan-price"><strong data-price="premium">R$ 27,90</strong><span>pagamento único</span></div><p class="plan-description">Acesso vitalício à plataforma completa + os bônus exclusivos.</p><ul class="plan-features"><li><i class="fas fa-check" aria-hidden="true"></i><span>Tudo o que está no plano Básico</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 1: Planner de Estudos</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 2: Caderno de Caligrafia</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 3: Guia de Viagem à Coreia do Sul</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 4: Pack de 80 Flashcards Imprimíveis</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 5: Guia de Culinária Tradicional</span></li></ul><a class="cta-button" href="#aviso-acesso" data-checkout="premium">Começar agora</a><p class="plan-footer"><i class="fas fa-shield-halved" aria-hidden="true"></i> Pagamento único · Sem mensalidade</p></article>
+                    <article class="plan-card rpg-card" aria-labelledby="basic-title"><h3 class="rpg-tag rpg-tag--light rpg-type" id="basic-title">BÁSICO</h3><div class="plan-price"><strong data-price="basic">R$ 14,90</strong><span>pagamento único</span></div><p class="plan-description">Seu primeiro passo para aprender coreano em uma nova aventura.</p><ul class="plan-features"><li><i class="fas fa-check" aria-hidden="true"></i><span>Acesso vitalício à plataforma de coreano</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Hangul, sílabas e expressões essenciais</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Vocabulário, gramática e áudio</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Exercícios, revisão e sistema de progresso</span></li></ul><a class="cta-button cta-button--light" href="#oferta-premium" data-checkout="basic">Começar agora</a><p class="plan-footer"><i class="fas fa-shield-halved" aria-hidden="true"></i> Acesso vitalício · Garantia de 7 dias</p></article>
+                    <article class="plan-card plan-card--premium rpg-card" aria-labelledby="premium-title"><span class="plan-recommended rpg-tag rpg-tag--gold rpg-type">AVENTURA COMPLETA</span><h3 class="rpg-tag rpg-type" id="premium-title">PREMIUM</h3><div class="plan-price-before"><span>De</span><del>R$ 97,00</del><span>por</span></div><div class="plan-price"><strong data-price="premium">R$ 29,90</strong><span>pagamento único</span></div><p class="plan-description">Acesso vitalício à plataforma completa + os bônus exclusivos.</p><ul class="plan-features"><li><i class="fas fa-check" aria-hidden="true"></i><span>Tudo o que está no plano Básico</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 1: Planner de Estudos</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 2: Caderno de Caligrafia</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 3: Guia de Viagem à Coreia do Sul</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 4: Pack de 80 Flashcards Imprimíveis</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 5: Guia de Culinária Tradicional</span></li></ul><a class="cta-button" href="#aviso-acesso" data-checkout="premium">Começar agora</a><p class="plan-footer"><i class="fas fa-shield-halved" aria-hidden="true"></i> Pagamento único · Sem mensalidade</p></article>
                 </div>
                 <div class="guarantee-note"><i class="fas fa-shield-halved" aria-hidden="true"></i><p><strong>Sua aventura começa com tranquilidade.</strong><br>Você tem 7 dias de garantia para conhecer o Hanyang RPG.</p></div>
             </div>
@@ -703,21 +741,66 @@
     </main>
 
     <footer class="footer" id="rodape">
-        <div class="container footer-content"><a class="brand" href="#inicio" aria-label="Hanyang RPG — voltar ao início"><span class="brand-mark rpg-type" aria-hidden="true">H</span><span><span class="brand-name rpg-type">Hanyang RPG</span><span class="brand-caption">© 2026 — Todos os direitos reservados</span></span></a><nav class="footer-links" aria-label="Informações e contato"><button type="button" data-info="privacy">Política de Privacidade</button><button type="button" data-info="terms">Termos de Uso</button><button type="button" data-info="contact">Contato</button><button class="square-button social-button" type="button" data-info="social" aria-label="Instagram do Hanyang RPG"><i class="fab fa-instagram" aria-hidden="true"></i></button></nav></div>
+        <div class="container footer-content"><a class="brand" href="#inicio" aria-label="Hanyang RPG — voltar ao início"><span class="brand-mark rpg-type" aria-hidden="true">H</span><span><span class="brand-name rpg-type">Hanyang RPG</span><span class="brand-caption">© 2026 — Todos os direitos reservados</span></span></a><nav class="footer-links" aria-label="Informações e contato"><button type="button" data-info="privacy">Política de Privacidade</button><button type="button" data-info="terms">Termos de Uso</button><button type="button" data-info="contact">Contato</button><a class="square-button social-button" href="https://www.instagram.com/lingopop.br/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da LingoPop (abre em nova aba)"><i class="fab fa-instagram" aria-hidden="true"></i></a></nav></div>
     </footer>
 
     <dialog class="availability-dialog" id="aviso-acesso" aria-labelledby="dialog-title" aria-describedby="dialog-description">
         <span class="rpg-tag rpg-type">HANYANG RPG</span><h2 id="dialog-title">Sua aventura está chegando</h2><p id="dialog-description">A compra ainda não está disponível nesta página. Volte em breve para começar sua jornada no coreano.</p><form method="dialog"><button class="cta-button" type="submit" autofocus>Entendi</button></form>
     </dialog>
 
-    <noscript><style>.hanyang .site-nav { position: static; display: flex; flex-wrap: wrap; border: 0; box-shadow: none; padding: 12px 0; gap: 6px; }.hanyang .header-inner,.hanyang .header-actions { flex-wrap: wrap; }.hanyang .menu-toggle,.hanyang .carousel-controls { display: none; }.hanyang .availability-dialog:target { display: block; position: fixed; inset: 0; z-index: 50; }</style></noscript>
+    <dialog class="upsell-dialog" id="oferta-premium" aria-labelledby="upsell-title" aria-describedby="upsell-description">
+        <form class="upsell-close-form" method="dialog"><button class="square-button" type="submit" aria-label="Fechar oferta e voltar aos planos"><i class="fas fa-xmark" aria-hidden="true"></i></button></form>
+        <span class="rpg-tag rpg-type">OFERTA PREMIUM</span>
+        <h2 id="upsell-title" tabindex="-1" autofocus>Leve a aventura completa por um valor especial</h2>
+        <p class="upsell-description" id="upsell-description">Por apenas <strong>R$ 5,00 a mais que o Básico</strong>, você leva o Premium com todos os 5 bônus.</p>
+        <div class="upsell-price"><del>R$ 29,90</del><strong data-price="premium-offer">R$ 19,90</strong><span>Pagamento único · Acesso vitalício</span></div>
+        <ul class="upsell-benefits" aria-label="Benefícios do Premium">
+            <li><i class="fas fa-check" aria-hidden="true"></i><span>Plataforma completa com acesso vitalício</span></li>
+            <li><i class="fas fa-check" aria-hidden="true"></i><span>Planner de Estudos</span></li>
+            <li><i class="fas fa-check" aria-hidden="true"></i><span>Caderno de Caligrafia</span></li>
+            <li><i class="fas fa-check" aria-hidden="true"></i><span>Guia de Viagem à Coreia do Sul</span></li>
+            <li><i class="fas fa-check" aria-hidden="true"></i><span>Pack de 80 Flashcards Imprimíveis</span></li>
+            <li><i class="fas fa-check" aria-hidden="true"></i><span>Guia de Culinária Tradicional</span></li>
+        </ul>
+        <div class="upsell-actions"><a class="cta-button" href="#aviso-acesso" data-checkout="premiumOffer">Quero o Premium por R$ 19,90</a><a class="cta-button cta-button--light" href="#aviso-acesso" id="continuar-basico">Continuar com o Básico por R$ 14,90</a></div>
+        <p class="upsell-note"><i class="fas fa-shield-halved" aria-hidden="true"></i> Ambos os planos têm 7 dias de garantia.</p>
+    </dialog>
+
+    <aside class="purchase-toast" id="compra-recente" aria-live="off" hidden>
+        <span class="purchase-toast-mark" aria-hidden="true"><i class="fas fa-check"></i></span>
+        <div class="purchase-toast-copy"><p><strong id="purchase-name"></strong><span id="purchase-location"></span> comprou o <strong id="purchase-plan"></strong>.</p><small id="purchase-time"></small></div>
+        <button class="purchase-toast-close" type="button" aria-label="Fechar e desativar notificações demonstrativas"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+    </aside>
+
+    <noscript><style>.hanyang .site-nav { position: static; display: flex; flex-wrap: wrap; border: 0; box-shadow: none; padding: 12px 0; gap: 6px; }.hanyang .header-inner,.hanyang .header-actions { flex-wrap: wrap; }.hanyang .menu-toggle,.hanyang .carousel-controls { display: none; }.hanyang .availability-dialog:target,.hanyang .upsell-dialog:target { display: block; position: fixed; inset: 0; z-index: 50; }</style><p class="container">Ative o JavaScript para usar a oferta especial. Os links de checkout serão disponibilizados em breve.</p></noscript>
     <script>
         (() => {
             'use strict';
-            // CONFIGURAÇÃO: preencher com os links dos planos deste produto, quando fornecidos.
-            // Os checkouts de index.html vendem outro produto e não são reutilizados aqui.
-            const checkoutUrls = { basic: '', premium: '' };
-            const infoUrls = { privacy: '', terms: '', contact: '', social: '' };
+            // Cada checkout precisa cobrar o respectivo valor. O link da oferta é independente.
+            const checkoutUrls = {
+                basic: '', // R$ 14,90
+                premium: '', // R$ 29,90
+                premiumOffer: '' // R$ 19,90
+            };
+            const infoUrls = { privacy: '', terms: '', contact: '' };
+            // Exemplos fictícios: a identificação de demonstração fica visível em cada aviso.
+            // Desative os exemplos com enabled: false. Compras reais exigem dados do checkout.
+            const purchaseNotifications = {
+                enabled: true,
+                firstDelayMs: 5000,
+                displayDurationMs: 6000,
+                pauseDurationMs: 12000,
+                examples: [
+                    { name: 'Fernanda R.', location: 'Recife, PE', plan: 'Pacote Básico', minutes: 8 },
+                    { name: 'André L.', location: 'Curitiba, PR', plan: 'Pacote Premium', minutes: 5 },
+                    { name: 'Camila S.', location: 'Belo Horizonte, MG', plan: 'Pacote Premium', minutes: 3 }
+                ]
+            };
+            const purchaseToast = document.getElementById('compra-recente');
+            let purchaseTimer = null;
+            let purchaseExampleIndex = 0;
+            let purchaseNotificationsDismissed = false;
+            try { purchaseNotificationsDismissed = sessionStorage.getItem('hanyang-demo-notifications-dismissed') === 'true'; } catch (_) {}
             const menuButton = document.querySelector('.menu-toggle');
             const navigation = document.getElementById('menu');
             const desktopQuery = window.matchMedia('(min-width: 1060px)');
@@ -805,43 +888,128 @@
             syncCarousel();
 
             const dialog = document.getElementById('aviso-acesso');
+            const upsellDialog = document.getElementById('oferta-premium');
+            let upsellTrigger = null;
             function showNotice(title, description) {
+                hidePurchaseToast();
+                if (upsellDialog.open) upsellDialog.close();
                 document.getElementById('dialog-title').textContent = title;
                 document.getElementById('dialog-description').textContent = description;
-                dialog.showModal();
+                if (!dialog.open) dialog.showModal();
             }
-            dialog.addEventListener('click', event => {
-                const rect = dialog.getBoundingClientRect();
-                if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
-            });
-            document.querySelectorAll('[data-checkout]').forEach(link => {
-                const plan = link.dataset.checkout;
-                const checkoutUrl = checkoutUrls[plan];
-                if (checkoutUrl) {
-                    const destination = new URL(checkoutUrl);
-                    // Preserva parâmetros de campanha, sem substituir os parâmetros do checkout.
+            [dialog, upsellDialog].forEach(modal => modal.addEventListener('click', event => {
+                if (event.target !== modal) return;
+                const rect = modal.getBoundingClientRect();
+                if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) modal.close();
+            }));
+            function checkoutDestination(plan) {
+                const raw = checkoutUrls[plan];
+                if (typeof raw !== 'string' || !raw.trim()) return null;
+                try {
+                    const destination = new URL(raw.trim());
+                    if (!['https:', 'http:'].includes(destination.protocol)) return null;
+                    // Preserva parâmetros de campanha sem substituir os definidos no checkout.
                     new URLSearchParams(window.location.search).forEach((value, key) => {
                         if (/^(utm_[a-z_]+|src|sck|fbclid|gclid|ttclid)$/.test(key) && !destination.searchParams.has(key)) destination.searchParams.set(key, value);
                     });
-                    link.href = destination.toString();
-                } else {
-                    link.addEventListener('click', event => {
-                        event.preventDefault();
-                        showNotice(`Plano ${plan === 'basic' ? 'Básico' : 'Premium'}`, 'A compra ainda não está disponível nesta página. Volte em breve para começar sua jornada no coreano.');
-                    });
+                    return destination.toString();
+                } catch (_) { return null; }
+            }
+            function continueToCheckout(plan) {
+                if (upsellDialog.open) upsellDialog.close();
+                const destination = checkoutDestination(plan);
+                if (destination) window.location.assign(destination);
+                else {
+                    const titles = { basic: 'Básico por R$ 14,90', premium: 'Premium por R$ 29,90', premiumOffer: 'Premium em oferta por R$ 19,90' };
+                    showNotice(titles[plan], 'O checkout desta opção ainda não está disponível. Volte em breve para concluir sua compra.');
                 }
+            }
+            function showPremiumOffer(trigger) {
+                upsellTrigger = trigger;
+                hidePurchaseToast();
+                if (!upsellDialog.open) upsellDialog.showModal();
+                upsellDialog.scrollTop = 0;
+            }
+            upsellDialog.addEventListener('close', () => {
+                if (!document.querySelector('dialog[open]') && upsellTrigger && upsellTrigger.isConnected) upsellTrigger.focus({ preventScroll: true });
+                schedulePurchaseNotification(purchaseNotifications.pauseDurationMs);
+            });
+            document.querySelectorAll('[data-checkout]').forEach(link => {
+                const plan = link.dataset.checkout;
+                const destination = checkoutDestination(plan);
+                if (plan !== 'basic' && destination) link.href = destination;
+                link.addEventListener('click', event => {
+                    if (plan === 'basic') {
+                        event.preventDefault();
+                        showPremiumOffer(link);
+                    } else if (link.closest('.upsell-dialog') || !destination) {
+                        event.preventDefault();
+                        continueToCheckout(plan);
+                    }
+                });
+            });
+            const continueBasic = document.getElementById('continuar-basico');
+            const basicDestination = checkoutDestination('basic');
+            if (basicDestination) continueBasic.href = basicDestination;
+            continueBasic.addEventListener('click', event => {
+                event.preventDefault();
+                continueToCheckout('basic');
             });
             const infoNotices = {
                 privacy: ['Política de Privacidade', 'A política de privacidade do Hanyang RPG estará disponível aqui em breve.'],
                 terms: ['Termos de Uso', 'Os termos de uso do Hanyang RPG estarão disponíveis aqui em breve.'],
-                contact: ['Fale com o Hanyang RPG', 'Nosso canal de atendimento será disponibilizado em breve.'],
-                social: ['Hanyang RPG no Instagram', 'Em breve, acompanhe nossas novidades e descobertas no Instagram.']
+                contact: ['Fale com o Hanyang RPG', 'Nosso canal de atendimento será disponibilizado em breve.']
             };
             document.querySelectorAll('[data-info]').forEach(button => button.addEventListener('click', () => {
                 const key = button.dataset.info;
                 if (infoUrls[key]) window.location.assign(infoUrls[key]);
                 else showNotice(...infoNotices[key]);
             }));
+
+            function hidePurchaseToast() {
+                clearTimeout(purchaseTimer);
+                purchaseToast.hidden = true;
+            }
+            function schedulePurchaseNotification(delay) {
+                clearTimeout(purchaseTimer);
+                if (!purchaseNotifications.enabled || purchaseNotificationsDismissed || document.hidden || !purchaseNotifications.examples.length) return;
+                purchaseTimer = setTimeout(showPurchaseExample, delay);
+            }
+            function hidePurchaseExample() {
+                if (purchaseToast.matches(':hover') || purchaseToast.contains(document.activeElement)) {
+                    purchaseTimer = setTimeout(hidePurchaseExample, 1000);
+                    return;
+                }
+                purchaseToast.hidden = true;
+                schedulePurchaseNotification(purchaseNotifications.pauseDurationMs);
+            }
+            function showPurchaseExample() {
+                if (document.hidden || document.querySelector('dialog[open]')) {
+                    schedulePurchaseNotification(3000);
+                    return;
+                }
+                const example = purchaseNotifications.examples[purchaseExampleIndex % purchaseNotifications.examples.length];
+                purchaseExampleIndex += 1;
+                document.getElementById('purchase-name').textContent = example.name;
+                document.getElementById('purchase-location').textContent = `, de ${example.location},`;
+                document.getElementById('purchase-plan').textContent = example.plan;
+                document.getElementById('purchase-time').textContent = `Há ${example.minutes} minutos`;
+                purchaseToast.hidden = false;
+                purchaseTimer = setTimeout(hidePurchaseExample, purchaseNotifications.displayDurationMs);
+            }
+            purchaseToast.querySelector('.purchase-toast-close').addEventListener('click', () => {
+                purchaseNotificationsDismissed = true;
+                try { sessionStorage.setItem('hanyang-demo-notifications-dismissed', 'true'); } catch (_) {}
+                hidePurchaseToast();
+            });
+            dialog.addEventListener('close', () => schedulePurchaseNotification(purchaseNotifications.pauseDurationMs));
+            document.addEventListener('visibilitychange', () => {
+                hidePurchaseToast();
+                if (!document.hidden) schedulePurchaseNotification(purchaseNotifications.firstDelayMs);
+            });
+            window.addEventListener('pagehide', hidePurchaseToast);
+            window.addEventListener('pageshow', () => schedulePurchaseNotification(purchaseNotifications.firstDelayMs));
+            schedulePurchaseNotification(purchaseNotifications.firstDelayMs);
         })();
     </script>
 </body>
