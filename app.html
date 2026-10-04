@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6C5CE7">
+    <meta name="description" content="Transforme seu aprendizado de coreano em uma aventura. Conheça o Hanyang RPG: Hangul, vocabulário, exercícios e revisão em uma jornada do português para o coreano.">
+    <title>Hanyang RPG — Sua aventura no coreano começa aqui</title>
+    <link rel="icon" type="image/svg+xml" href="images/Flag_of_South_Korea.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Extensões exclusivas desta página. As folhas e os recursos existentes são preservados. -->
+    <style>
+        .hanyang {
+            /* Paleta do index.html e de css/styles.css. */
+            --paper: #FFFFFF;
+            --paper-deep: #F8F9FA;
+            --card: #FFFFFF;
+            --ink: #2D3436;
+            --muted: #666666;
+            --red: #6C5CE7;
+            --gold: #FFD700;
+            --green: #10B981;
+            --official-hero: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            --official-cta: linear-gradient(135deg, #10B981, #06B6D4);
+            --line: 3px solid var(--ink);
+            --shadow: 6px 6px 0 var(--ink);
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Poppins', system-ui, sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hanyang .container { max-width: 1256px; padding-inline: 22px; }
+        .hanyang h1, .hanyang h2, .hanyang h3 { color: var(--ink); font-weight: 700; }
+        .hanyang h1, .hanyang h2 { letter-spacing: -.045em; line-height: 1.22; }
+        .hanyang h2 { font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 0; }
+        .hanyang h3 { font-size: 19px; letter-spacing: -.025em; line-height: 1.45; }
+        .hanyang p { color: var(--muted); margin-bottom: 0; }
+        .hanyang a { color: inherit; }
+        .hanyang button { font: inherit; cursor: pointer; color: inherit; }
+        .hanyang button:disabled { cursor: default; }
+        .hanyang a, .hanyang button, .hanyang summary { -webkit-tap-highlight-color: transparent; }
+        .hanyang :is(a, button, summary, [tabindex]):focus-visible { outline: 3px solid var(--red); outline-offset: 6px; }
+        .hanyang [hidden] { display: none !important; }
+        .hanyang section[id], .hanyang footer[id], .hanyang main { scroll-margin-top: 100px; }
+        .hanyang .rpg-type { font-family: 'Press Start 2P', 'Courier New', monospace; font-weight: 400; letter-spacing: 0; }
+        .hanyang .paper-pattern { background-image: radial-gradient(#c8b998 0.7px, transparent 0.7px); background-size: 19px 19px; }
+        .hanyang .rpg-tag {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 12px 13px; border: var(--line); border-radius: 6px;
+            background: var(--red); box-shadow: 4px 4px 0 var(--ink);
+            color: var(--card); font-size: 10px; line-height: 1.6;
+        }
+        .hanyang .rpg-tag--green { background: var(--green); }
+        .hanyang .rpg-tag--gold { background: var(--gold); color: var(--ink); }
+        .hanyang .rpg-tag--light { background: var(--card); color: var(--ink); }
+        .hanyang .cta-button {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            min-height: 55px; padding: 13px 25px; border: var(--line); border-radius: 6px;
+            background: var(--red); color: var(--card); box-shadow: var(--shadow);
+            font-family: inherit; font-size: 17px; font-weight: 500; line-height: 1.5;
+            text-decoration: none; transition: transform .15s, box-shadow .15s, background .15s;
+        }
+        .hanyang .cta-button:hover { background: #762025; transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+        .hanyang .cta-button:active { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--ink); }
+        .hanyang .cta-button--light { background: var(--card); color: var(--ink); }
+        .hanyang .cta-button--light:hover { background: var(--paper-deep); }
+        .hanyang .cta-button--gold { background: var(--gold); color: var(--ink); }
+        .hanyang .cta-button--gold:hover { background: #f1bd60; }
+        .hanyang .section { padding-block: 68px; }
+        .hanyang .section-heading { max-width: 880px; margin: 0 auto 43px; text-align: center; }
+        .hanyang .section-heading h2 { margin-top: 27px; text-wrap: balance; }
+        .hanyang .section-heading > p { max-width: 780px; margin: 22px auto 0; font-size: 17px; }
+        .hanyang .section-cta { margin-top: 43px; text-align: center; }
+        .hanyang .rpg-card { background: var(--card); border: var(--line); border-radius: 8px; box-shadow: var(--shadow); }
+        .hanyang .icon-box {
+            width: 49px; height: 49px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+            border: var(--line); border-radius: 6px; background: var(--paper-deep); box-shadow: 4px 4px 0 var(--ink); font-size: 20px;
+        }
+        .hanyang .icon-box--gold { background: var(--gold); }
+        .hanyang .skip-link { position: fixed; left: 20px; top: -100px; z-index: 100; padding: 12px 20px; background: var(--card); border: var(--line); }
+        .hanyang .skip-link:focus { top: 14px; }
+        .hanyang .site-header { position: sticky; top: 0; z-index: 30; background: var(--paper); border-bottom: var(--line); }
+        .hanyang .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 16px; position: relative; }
+        .hanyang .brand { display: inline-flex; align-items: center; gap: 13px; text-decoration: none; flex-shrink: 0; }
+        .hanyang .brand-mark { width: 43px; height: 43px; display: grid; place-items: center; border: var(--line); border-radius: 6px; background: var(--red); color: var(--card); box-shadow: 4px 4px 0 var(--ink); font-size: 17px; }
+        .hanyang .brand-name { display: block; font-size: 12px; line-height: 1.7; }
+        .hanyang .brand-caption { display: block; color: var(--muted); font-size: 10px; }
+        .hanyang .header-actions { display: flex; align-items: center; gap: 15px; }
+        .hanyang .header-cta { display: none; min-height: 43px; font-size: 14px; padding: 9px 17px; }
+        .hanyang .menu-toggle { width: 43px; height: 43px; display: grid; place-items: center; border: var(--line); background: var(--card); border-radius: 6px; font-size: 18px; }
+        .hanyang .site-nav { display: none; position: absolute; inset: 76px 0 auto; padding: 21px; background: var(--card); border: var(--line); border-top: 0; box-shadow: 0 5px 0 var(--ink); }
+        .hanyang .site-nav.is-open { display: flex; flex-direction: column; gap: 7px; }
+        .hanyang .site-nav a { display: block; padding: 9px 8px; color: var(--muted); font-size: 15px; font-weight: 500; text-decoration: none; }
+        .hanyang .site-nav a:hover { color: var(--red); }
+        .hanyang .site-nav .nav-mobile-cta { color: var(--red); font-weight: 700; }
+        .hanyang .hero { display: block; min-height: auto; background-color: var(--paper); padding: 58px 0 66px; text-align: center; }
+        .hanyang .hero .rpg-tag { font-size: 9px; }
+        .hanyang .hero h1 { max-width: 850px; margin: 28px auto 0; font-size: clamp(34px, 5.1vw, 65px); text-wrap: balance; }
+        .hanyang .hero h1 .highlight { display: inline; color: var(--red); text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 6px; text-underline-offset: 8px; }
+        .hanyang .hero-subtitle { color: var(--muted); font-size: 16px; max-width: 775px; margin: 28px auto 0; line-height: 1.8; }
+        .hanyang .hero-subtitle strong { color: var(--ink); font-weight: 600; border-bottom: 4px solid #edc473; }
+        .hanyang .hero-preview { position: relative; max-width: 510px; margin: 43px auto 0; }
+        .hanyang .hero-float { display: none; position: absolute; z-index: 2; }
+        .hanyang .hero-float--alphabet { top: -13px; left: -24px; font-size: 17px; letter-spacing: 7px; padding: 6px 12px; }
+        .hanyang .hero-float--xp { right: -22px; bottom: 44px; }
+        .hanyang .hero-actions { margin-top: 35px; display: flex; flex-direction: column; justify-content: center; gap: 17px; }
+        .hanyang .purchase-perks { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 22px; list-style: none; margin: 28px 0 0; font-size: 12px; color: var(--muted); }
+        .hanyang .purchase-perks li { display: flex; align-items: center; gap: 8px; }
+        .hanyang .purchase-perks li:nth-child(1) i { color: var(--red); }
+        .hanyang .purchase-perks li:nth-child(2) i { color: var(--green); }
+        .hanyang .purchase-perks li:nth-child(3) i { color: #ac7420; }
+        .hanyang .device-strip { padding-block: 31px; background: var(--paper-deep); border-block: var(--line); }
+        .hanyang .device-grid { display: grid; gap: 27px; }
+        .hanyang .device-item { display: flex; align-items: center; gap: 18px; }
+        .hanyang .device-item .icon-box { background: var(--card); color: var(--red); }
+        .hanyang .device-item h3 { font-size: 15px; margin-bottom: 1px; }
+        .hanyang .device-item p { font-size: 13px; }
+        /* Mockups em HTML/CSS: troque cada figure[data-mockup] por uma imagem quando estiver disponível. */
+        .hanyang .app-window { text-align: left; overflow: hidden; background: #f2e6cf; border: var(--line); border-radius: 8px; box-shadow: 8px 8px 0 var(--ink); }
+        .hanyang .window-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 15px; background: var(--red); color: var(--card); border-bottom: var(--line); font-size: 9px; }
+        .hanyang .window-dots { display: flex; gap: 6px; }
+        .hanyang .window-dots b { width: 7px; height: 7px; border: 1px solid var(--card); border-radius: 50%; }
+        .hanyang .app-layout { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 12px; }
+        .hanyang .mock-sidebar { display: flex; flex-direction: column; align-items: center; gap: 13px; padding: 13px 5px; background: var(--ink); border-radius: 4px; color: var(--paper); }
+        .hanyang .mock-sidebar > span { width: 30px; height: 31px; display: grid; place-items: center; background: #594330; border-radius: 3px; font-size: 13px; }
+        .hanyang .mock-sidebar > span:first-child { background: var(--gold); color: var(--ink); font-size: 17px; }
+        .hanyang .mock-sidebar > .selected { background: var(--red); }
+        .hanyang .mock-main { min-width: 0; }
+        .hanyang .mock-profile { display: flex; justify-content: space-between; align-items: center; gap: 7px; padding: 11px; background: var(--ink); color: var(--card); font-size: 9px; }
+        .hanyang .mock-profile small { display: block; color: var(--gold); font-size: 7px; margin-bottom: 2px; }
+        .hanyang .mock-profile b { font-size: 10px; }
+        .hanyang .mock-xp { white-space: nowrap; padding: 3px 5px; border: 1px solid #cdbb9b; font-size: 8px; }
+        .hanyang .mock-map-title { margin-top: 12px; padding: 11px; border: 2px solid var(--ink); background: var(--card); text-align: center; }
+        .hanyang .mock-map-title .rpg-type { display: block; color: var(--red); font-size: 11px; }
+        .hanyang .mock-map-title small { color: var(--muted); font-size: 9px; }
+        .hanyang .mock-progress { height: 7px; border: 2px solid var(--ink); margin-top: 9px; background: var(--paper-deep); }
+        .hanyang .mock-progress::before { content: ''; display: block; width: 36%; height: 100%; background: var(--gold); }
+        .hanyang .mock-route { display: flex; flex-direction: column; align-items: center; padding: 17px 0 12px; gap: 3px; }
+        .hanyang .map-node { display: flex; flex-direction: column; align-items: center; gap: 7px; width: 80%; }
+        .hanyang .map-node:nth-child(3) { align-self: flex-end; }
+        .hanyang .map-node > i { display: grid; place-items: center; width: 50px; height: 50px; border: 3px solid var(--ink); border-radius: 50%; background: var(--green); color: var(--card); box-shadow: 3px 3px 0 var(--ink); font-size: 20px; }
+        .hanyang .map-node:nth-child(3) > i { background: var(--gold); color: var(--ink); }
+        .hanyang .map-node .rpg-type { font-size: 7px; line-height: 1.7; text-align: center; }
+        .hanyang .map-connector { height: 14px; border-left: 3px dashed #bea887; margin-block: 4px; }
+        .hanyang .mock-caption { padding: 9px 12px; border-top: 1px dashed #bca886; color: var(--muted); text-align: center; font-size: 8px; letter-spacing: .09em; text-transform: uppercase; }
+        .hanyang .journey-track { display: flex; gap: 21px; overflow-x: auto; padding: 3px 9px 12px 0; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+        .hanyang .journey-track::-webkit-scrollbar { display: none; }
+        .hanyang .journey-card { flex: 0 0 91%; min-width: 0; scroll-snap-align: start; overflow: hidden; box-shadow: 5px 5px 0 var(--ink); }
+        .hanyang .stage-copy { padding: 23px; }
+        .hanyang .stage-number { display: block; color: var(--red); font-size: 9px; margin-bottom: 15px; }
+        .hanyang .stage-copy h3 { margin-bottom: 9px; }
+        .hanyang .stage-copy p { font-size: 14px; }
+        .hanyang .screen-mockup { position: relative; display: flex; flex-direction: column; min-height: 238px; background: #efdfb7; border-bottom: var(--line); padding: 14px; }
+        .hanyang .screen-mockup::before, .hanyang .feature-screen::before { content: ''; position: absolute; inset: 7px; border: 1px solid #ac8550; pointer-events: none; }
+        .hanyang .screen-heading { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 8px; background: var(--red); border: 2px solid var(--ink); color: var(--card); font-size: 8px; }
+        .hanyang .screen-heading::before, .hanyang .screen-heading::after { content: '✦'; color: var(--gold); }
+        .hanyang .hangul-tile { display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; border: 2px solid var(--ink); border-radius: 7px; background: var(--card); margin: 12px 14px 9px; box-shadow: 3px 3px 0 #a18352; }
+        .hanyang .hangul-letter { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; font-size: 70px; font-weight: 700; line-height: 1.3; }
+        .hanyang .hangul-sound { color: var(--red); font-size: 10px; margin-block: 7px; }
+        .hanyang .mock-bottom { display: flex; justify-content: center; gap: 12px; font-size: 8px; color: var(--muted); }
+        .hanyang .tile-grid { flex: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; padding: 13px 3px 4px; }
+        .hanyang .mini-tile { border: 2px solid var(--ink); border-radius: 4px; box-shadow: 2px 2px 0 #a18352; background: var(--card); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; }
+        .hanyang .mini-tile b { font-size: 24px; line-height: 1.5; }
+        .hanyang .mini-tile small { font-size: 8px; color: var(--muted); }
+        .hanyang .mock-question { padding: 19px 10px 9px; text-align: center; font-size: 21px; font-weight: 600; }
+        .hanyang .mock-answers { display: grid; gap: 7px; }
+        .hanyang .mock-answers span { display: block; padding: 5px 13px; background: var(--card); border: 2px solid var(--ink); border-radius: 4px; font-size: 11px; }
+        .hanyang .mock-answers .correct { color: var(--card); background: var(--green); }
+        .hanyang .review-word { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 12px 4px; background: var(--card); border: 2px solid var(--ink); border-radius: 5px; }
+        .hanyang .review-word b { font-size: 43px; }
+        .hanyang .review-word span { font-size: 14px; }
+        .hanyang .review-buttons { display: flex; gap: 6px; }
+        .hanyang .review-buttons span { flex: 1; padding: 8px 3px; border: 2px solid var(--ink); border-radius: 4px; background: var(--gold); text-align: center; font-size: 7px; }
+        .hanyang .review-buttons span:first-child { background: var(--green); color: var(--card); }
+        .hanyang .review-buttons span:last-child { background: #a84d36; color: var(--card); }
+        .hanyang .carousel-controls { margin-top: 24px; display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .hanyang .square-button { width: 46px; height: 46px; display: grid; place-items: center; border: var(--line); border-radius: 6px; background: var(--card); box-shadow: 4px 4px 0 var(--ink); }
+        .hanyang .square-button:disabled { opacity: .4; }
+        .hanyang .carousel-dots { display: flex; gap: 4px; }
+        .hanyang .carousel-dot { display: grid; place-items: center; width: 28px; height: 44px; border: 0; background: transparent; }
+        .hanyang .carousel-dot::before { content: ''; width: 10px; height: 10px; border: 2px solid var(--ink); border-radius: 3px; background: var(--paper-deep); transition: width .15s; }
+        .hanyang .carousel-dot[aria-current="true"]::before { width: 23px; background: var(--red); }
+        .hanyang .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+        .hanyang .benefits { background: var(--paper-deep); }
+        .hanyang .benefits-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 0; }
+        .hanyang .benefit-item { padding: 25px; text-align: left; background: var(--card); border: var(--line); border-radius: 8px; box-shadow: var(--shadow); animation: none; }
+        .hanyang .benefit-icon { width: 48px; height: 48px; margin: 0 0 23px; border: var(--line); border-radius: 6px; background: var(--paper-deep); box-shadow: 4px 4px 0 var(--ink); }
+        .hanyang .benefit-icon i { font-size: 18px; color: var(--ink); }
+        .hanyang .benefit-item h3 { font-size: 17px; color: var(--ink); margin-bottom: 7px; }
+        .hanyang .benefit-item p { font-size: 14px; color: var(--muted); }
+        .hanyang .benefit-item:last-child .benefit-icon { background: var(--gold); }
+        .hanyang .feature-rows { display: grid; gap: 58px; }
+        .hanyang .feature-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 27px; align-items: center; }
+        .hanyang .feature-copy h3 { margin: 25px 0 18px; font-size: clamp(24px, 2.6vw, 31px); line-height: 1.4; text-wrap: balance; }
+        .hanyang .feature-copy p { font-size: 16px; }
+        .hanyang .feature-screen { position: relative; min-width: 0; width: 100%; padding: 19px; background: #f0e3c8; overflow: hidden; aspect-ratio: 1.5; min-height: 230px; }
+        .hanyang .feature-screen .screen-heading { font-size: 8px; }
+        .hanyang .feature-map { position: relative; display: flex; justify-content: space-around; align-items: center; height: calc(100% - 40px); padding-top: 17px; }
+        .hanyang .feature-map::before { content: ''; position: absolute; top: 52%; left: 18%; right: 18%; border-top: 3px dashed #b7a077; }
+        .hanyang .feature-map .map-node { position: relative; width: 30%; }
+        .hanyang .feature-map .map-node > i { width: 45px; height: 45px; font-size: 17px; }
+        .hanyang .feature-map .map-node:last-child > i { background: #d9c9a7; color: #8c7554; }
+        .hanyang .feature-map .map-node:nth-child(2) { align-self: flex-end; margin-bottom: 20px; }
+        .hanyang .feature-screen .hangul-tile { height: calc(100% - 55px); margin: 15px 15px 0; }
+        .hanyang .feature-screen .review-word { height: calc(100% - 100px); min-height: 95px; }
+        .hanyang .dictionary-rows { display: grid; gap: 11px; margin-top: 17px; }
+        .hanyang .dictionary-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 13px; border: 2px solid var(--ink); background: var(--card); font-size: 11px; }
+        .hanyang .dictionary-row b { font-size: 19px; }
+        .hanyang .dictionary-row i { color: var(--red); }
+        .hanyang .testimonials { background: var(--paper-deep); }
+        .hanyang .testimonials-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+        .hanyang .story-card { padding: 29px; display: flex; flex-direction: column; }
+        .hanyang .story-stars { color: #ac7420; font-size: 19px; letter-spacing: 4px; margin-bottom: 22px; }
+        .hanyang .story-card > p { min-height: 95px; font-size: 16px; color: var(--ink); }
+        .hanyang .story-author { display: flex; align-items: center; gap: 16px; border-top: 2px solid var(--ink); padding-top: 21px; margin-top: 25px; }
+        .hanyang .story-avatar { width: 45px; height: 45px; display: grid; place-items: center; border: var(--line); border-radius: 6px; background: var(--red); color: var(--card); font-size: 10px; }
+        .hanyang .story-author strong { display: block; font-size: 14px; font-weight: 600; }
+        .hanyang .story-author small { color: var(--muted); font-size: 12px; }
+        /* Os bônus compartilham a identidade visual e os componentes da página. */
+        .hanyang .bonus-section {
+            background: #F3F2FB; border-block: 1px solid #D8D1EF;
+        }
+        .hanyang .bonus-grid { display: grid; gap: 25px; }
+        .hanyang .bonus-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+        .hanyang .bonus-preview {
+            aspect-ratio: 4 / 3; margin: 16px 16px 0; padding: 6px;
+            background: #FFFFFF; border: 2px solid #45378B; border-radius: 14px;
+            box-shadow: 4px 4px 0 #D8D1EF; overflow: hidden;
+        }
+        .hanyang .bonus-preview img { display: block; width: 100%; height: 100%; object-fit: contain; background: #06254B; border-radius: 6px; }
+        .hanyang .bonus-copy { flex: 1; padding: 24px; }
+        .hanyang .bonus-label { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+        .hanyang .bonus-copy h3 { font-size: 19px; margin-bottom: 12px; text-wrap: balance; }
+        .hanyang .bonus-copy p { font-size: 14px; line-height: 1.8; }
+        .hanyang .pricing-section { border-top: var(--line); }
+        .hanyang .plan-grid { display: grid; gap: 39px; max-width: 1050px; margin-inline: auto; align-items: start; }
+        .hanyang .plan-card { position: relative; padding: 31px 24px; }
+        .hanyang .plan-card--premium { border-width: 4px; box-shadow: 9px 9px 0 var(--ink); }
+        .hanyang .plan-recommended { position: absolute; top: -23px; left: 24px; }
+        .hanyang .plan-card--premium > .rpg-tag { margin-top: 15px; }
+        .hanyang .plan-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 10px; margin: 26px 0 12px; }
+        .hanyang .plan-price strong { font-size: clamp(34px, 4vw, 44px); font-weight: 700; letter-spacing: -.05em; line-height: 1.3; white-space: nowrap; }
+        .hanyang .plan-card--premium .plan-price strong { color: var(--red); font-size: clamp(38px, 4.4vw, 51px); }
+        .hanyang .plan-price span { color: var(--muted); font-size: 13px; }
+        .hanyang .plan-description { font-size: 14px; }
+        .hanyang .plan-features { list-style: none; display: grid; gap: 15px; margin: 28px 0 31px; }
+        .hanyang .plan-features li { display: flex; align-items: baseline; gap: 12px; color: var(--muted); font-size: 13px; }
+        .hanyang .plan-features i { color: var(--green); flex-shrink: 0; }
+        .hanyang .plan-card--premium .plan-features i { color: var(--red); }
+        .hanyang .plan-card .cta-button { width: 100%; }
+        .hanyang .plan-footer { margin-top: 17px; text-align: center; font-size: 10px; }
+        .hanyang .guarantee-note { display: flex; align-items: center; justify-content: center; gap: 14px; max-width: 680px; margin: 39px auto 0; }
+        .hanyang .guarantee-note i { color: var(--green); font-size: 32px; flex-shrink: 0; }
+        .hanyang .guarantee-note p { font-size: 13px; }
+        .hanyang .guarantee-note strong { color: var(--ink); }
+        .hanyang .faq-list { max-width: 780px; margin-inline: auto; display: grid; gap: 19px; }
+        .hanyang .faq-entry { overflow: hidden; }
+        .hanyang .faq-entry summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 20px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 600; line-height: 1.6; }
+        .hanyang .faq-entry summary::-webkit-details-marker { display: none; }
+        .hanyang .faq-entry summary:focus-visible { outline-offset: -7px; }
+        .hanyang .faq-entry summary::after { content: ''; width: 8px; height: 8px; flex-shrink: 0; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .15s; }
+        .hanyang .faq-entry[open] summary::after { transform: rotate(225deg); }
+        .hanyang .faq-entry[open] summary { padding-bottom: 13px; }
+        .hanyang .faq-entry p { padding: 0 20px 23px; font-size: 14px; }
+        .hanyang .final-section { background: var(--red); border-block: var(--line); text-align: center; padding-block: 65px 42px; }
+        .hanyang .final-section h2 { max-width: 770px; margin: 32px auto 0; color: var(--card); font-size: clamp(31px, 4vw, 49px); text-wrap: balance; }
+        .hanyang .final-section p { max-width: 675px; margin: 24px auto 0; color: #f1ddd0; font-size: 16px; }
+        .hanyang .final-section .cta-button { margin-top: 36px; min-width: 230px; }
+        .hanyang .palace-mark { width: 130px; height: 98px; display: block; margin: 46px auto 0; color: var(--gold); }
+        .hanyang .footer { background: var(--paper); color: var(--ink); padding-block: 36px; text-align: left; }
+        .hanyang .footer-content { gap: 30px; align-items: flex-start; }
+        .hanyang .footer .brand-name { font-size: 11px; }
+        .hanyang .footer .brand-caption { margin-top: 3px; font-size: 10px; }
+        .hanyang .footer-links { flex-direction: row; justify-content: flex-start; flex-wrap: wrap; align-items: center; gap: 15px 23px; }
+        .hanyang .footer-links button { border: 0; background: transparent; min-height: 44px; padding: 7px 0; font-size: 12px; color: var(--muted); text-align: left; }
+        .hanyang .footer-links button:hover { color: var(--red); }
+        .hanyang .footer-links .social-button { padding: 0; border: var(--line); background: var(--card); color: var(--ink); font-size: 20px; }
+        .hanyang .availability-dialog { width: min(480px, calc(100% - 40px)); max-height: calc(100dvh - 48px); overflow-y: auto; margin: auto; padding: 32px; border: var(--line); border-radius: 8px; background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+        .hanyang .availability-dialog::backdrop { background: rgb(40 25 15 / .65); }
+        .hanyang .availability-dialog h2 { text-align: left; font-size: 25px; margin: 24px 0 16px; }
+        .hanyang .availability-dialog p { font-size: 14px; }
+        .hanyang .availability-dialog .cta-button { margin-top: 26px; width: 100%; }
+        .hanyang:has(.availability-dialog[open]) { overflow: hidden; }
+        @media (min-width: 400px) {
+            .hanyang .brand-caption { font-size: 11px; }
+        }
+        @media (min-width: 600px) {
+            .hanyang .header-cta { display: inline-flex; }
+            .hanyang .container { padding-inline: 28px; }
+            .hanyang .hero-actions { flex-direction: row; }
+            .hanyang .hero-actions .cta-button { min-width: 207px; }
+            .hanyang .hero-float { display: inline-flex; }
+            .hanyang .hero .rpg-tag { font-size: 11px; }
+            .hanyang .hero-subtitle { font-size: 18px; }
+            .hanyang .purchase-perks { font-size: 13px; gap: 28px; }
+            .hanyang .app-layout { grid-template-columns: 57px minmax(0, 1fr); gap: 16px; padding: 16px; }
+            .hanyang .mock-sidebar > span { width: 35px; height: 36px; }
+            .hanyang .mock-profile { padding: 13px; }
+            .hanyang .mock-profile b { font-size: 12px; }
+            .hanyang .mock-xp { font-size: 10px; }
+            .hanyang .mock-map-title { padding: 15px; }
+            .hanyang .mock-map-title .rpg-type { font-size: 14px; }
+            .hanyang .mock-map-title small { font-size: 11px; }
+            .hanyang .map-node > i { width: 58px; height: 58px; font-size: 23px; }
+            .hanyang .map-node .rpg-type { font-size: 8px; }
+            .hanyang .journey-card { flex-basis: 64%; }
+            .hanyang .screen-mockup { min-height: 280px; }
+            .hanyang .benefits-grid, .hanyang .bonus-grid, .hanyang .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .hanyang .testimonials-grid .story-card:last-child { grid-column: 1 / -1; }
+            .hanyang .bonus-card:last-child { grid-column: 1 / -1; width: calc((100% - 25px) / 2); justify-self: center; }
+            .hanyang .feature-screen { padding: 27px; }
+            .hanyang .feature-screen .screen-heading { font-size: 10px; }
+            .hanyang .feature-map .map-node > i { width: 65px; height: 65px; font-size: 27px; }
+            .hanyang .dictionary-row { font-size: 15px; padding: 14px 18px; }
+            .hanyang .dictionary-row b { font-size: 26px; }
+            .hanyang .plan-card { padding: 38px; }
+        }
+        @media (min-width: 900px) {
+            .hanyang .section { padding-block: 89px; }
+            .hanyang .section-heading { margin-bottom: 55px; }
+            .hanyang .section-heading > p { font-size: 18px; }
+            .hanyang .hero { padding-block: 90px 87px; }
+            .hanyang .hero h1 { margin-top: 31px; }
+            .hanyang .hero-subtitle { font-size: 18px; max-width: 740px; margin-top: 32px; }
+            .hanyang .hero-preview { margin-top: 49px; }
+            .hanyang .hero-actions { margin-top: 44px; gap: 22px; }
+            .hanyang .purchase-perks { margin-top: 32px; font-size: 14px; }
+            .hanyang .device-strip { padding-block: 40px; }
+            .hanyang .device-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; }
+            .hanyang .device-item h3 { font-size: 15px; }
+            .hanyang .device-item p { font-size: 12px; }
+            .hanyang .journey-card { flex-basis: 47%; }
+            .hanyang .screen-mockup { min-height: 320px; padding: 23px; }
+            .hanyang .screen-heading { font-size: 11px; }
+            .hanyang .hangul-letter { font-size: 86px; }
+            .hanyang .mock-bottom { font-size: 10px; }
+            .hanyang .mini-tile b { font-size: 35px; }
+            .hanyang .mini-tile small { font-size: 10px; }
+            .hanyang .mock-question { padding: 22px 10px 14px; font-size: 25px; }
+            .hanyang .mock-answers span { padding: 7px 15px; font-size: 14px; }
+            .hanyang .review-word b { font-size: 50px; }
+            .hanyang .review-buttons span { font-size: 9px; }
+            .hanyang .carousel-controls { margin-top: 29px; }
+            .hanyang .benefits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 23px; }
+            .hanyang .benefit-item { padding: 26px; }
+            .hanyang .feature-rows { gap: 86px; }
+            .hanyang .feature-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 67px; }
+            .hanyang .feature-row:nth-child(even) .feature-copy { order: 2; }
+            .hanyang .feature-row:nth-child(even) .feature-screen { order: 1; }
+            .hanyang .feature-copy p { font-size: 16px; }
+            .hanyang .feature-screen { aspect-ratio: 1.6; }
+            .hanyang .feature-map .map-node > i { width: 60px; height: 60px; }
+            .hanyang .dictionary-row { padding: 9px 15px; font-size: 13px; }
+            .hanyang .testimonials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .hanyang .testimonials-grid .story-card:last-child { grid-column: auto; }
+            .hanyang .story-card > p { min-height: 120px; }
+            .hanyang .bonus-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+            .hanyang .bonus-card { grid-column: span 2; }
+            .hanyang .bonus-card:nth-child(4) { grid-column: 2 / span 2; }
+            .hanyang .bonus-card:last-child { grid-column: 4 / span 2; width: auto; }
+            .hanyang .plan-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; align-items: end; }
+            .hanyang .plan-card { padding: 36px 32px; }
+            .hanyang .plan-features { gap: 17px; }
+            .hanyang .faq-entry summary { padding: 23px; font-size: 16px; }
+            .hanyang .faq-entry p { padding-inline: 23px; }
+            .hanyang .final-section { padding-block: 63px 53px; }
+            .hanyang .final-section p { font-size: 17px; }
+            .hanyang .footer { padding-block: 42px; }
+            .hanyang .footer-content { flex-direction: row; justify-content: space-between; align-items: center; }
+        }
+        @media (min-width: 1060px) {
+            .hanyang .brand-name { font-size: 13px; }
+            .hanyang .header-inner { min-height: 76px; }
+            .hanyang .site-nav { position: static; display: flex; align-items: center; gap: 22px; border: 0; padding: 0; background: transparent; box-shadow: none; }
+            .hanyang .site-nav.is-open { flex-direction: row; gap: 22px; }
+            .hanyang .site-nav a { padding: 10px 0; font-size: 13px; }
+            .hanyang .site-nav .nav-mobile-cta, .hanyang .menu-toggle { display: none; }
+            .hanyang .header-actions { gap: 28px; }
+            .hanyang .header-cta { padding-inline: 19px; }
+            .hanyang .device-item p { font-size: 13px; }
+        }
+        /* Integração visual com o site principal em todas as seções. */
+        .hanyang { color: #333333; }
+        .hanyang .paper-pattern { background-image: none; }
+        .hanyang .site-header { border-bottom: 1px solid #E5E7EB; box-shadow: 0 2px 12px rgb(0 0 0 / .04); }
+        .hanyang .brand-mark { border-color: #6C5CE7; box-shadow: 3px 3px 0 #E0E7FF; }
+        .hanyang .hero { background: linear-gradient(rgb(31 20 66 / .16), rgb(31 20 66 / .16)), var(--official-hero); }
+        .hanyang .hero h1, .hanyang .hero-subtitle strong { color: #FFFFFF; }
+        .hanyang .hero h1 .highlight { color: #FFD700; text-decoration-color: #FFD700; }
+        .hanyang .hero-subtitle { color: #FFFFFF; }
+        .hanyang .hero-subtitle strong { border-bottom-color: #FFD700; }
+        .hanyang .hero .purchase-perks { color: #FFFFFF; }
+        .hanyang .hero .purchase-perks li i { color: #FFD700; }
+        .hanyang .rpg-tag { border: 1px solid #5746C9; box-shadow: 0 3px 0 #DDD7F7; }
+        .hanyang .rpg-tag--green { background: #065F46; border-color: #064E3B; box-shadow: 0 3px 0 #CBE7DB; }
+        .hanyang .rpg-tag--gold { border-color: #B7791F; box-shadow: 0 3px 0 rgb(45 32 68 / .25); }
+        .hanyang .rpg-tag--light { border-color: #B9ADEA; }
+        .hanyang .hero-copy > .rpg-tag, .hanyang .pricing-section .section-heading > .rpg-tag { background: #45378B; color: #FFFFFF; border: 1px solid rgb(255 255 255 / .6); box-shadow: 0 3px 0 rgb(31 20 66 / .24); }
+        .hanyang .cta-button {
+            background: linear-gradient(135deg, #047857, #0E7490); color: #FFFFFF;
+            border: 2px solid #065F46; border-radius: 50px; min-height: 56px;
+            font-weight: 600; box-shadow: 0 4px 0 #064E3B, 0 9px 20px rgb(4 120 87 / .18);
+        }
+        .hanyang .cta-button:hover { background: linear-gradient(135deg, #065F46, #155E75); color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 6px 0 #064E3B, 0 12px 24px rgb(4 120 87 / .22); }
+        .hanyang .cta-button:active { transform: translateY(3px); box-shadow: 0 1px 0 #064E3B; }
+        .hanyang .cta-button--light { background: #FFFFFF; color: #5746C9; border-color: #6C5CE7; box-shadow: 0 4px 0 #DDD7F7, 0 8px 18px rgb(108 92 231 / .1); }
+        .hanyang .cta-button--light:hover { background: #F0EDFF; color: #45378B; box-shadow: 0 6px 0 #C8BFF2, 0 10px 20px rgb(108 92 231 / .15); }
+        .hanyang .cta-button--light:active { box-shadow: 0 1px 0 #C8BFF2; }
+        .hanyang .cta-button--gold { background: linear-gradient(135deg, #FFD700, #FBBF24); color: #292524; border-color: #B7791F; box-shadow: 0 4px 0 #92611A, 0 9px 20px rgb(251 191 36 / .2); }
+        .hanyang .cta-button--gold:hover { background: linear-gradient(135deg, #FDE047, #F59E0B); color: #292524; box-shadow: 0 6px 0 #92611A, 0 12px 24px rgb(251 191 36 / .25); }
+        .hanyang .cta-button--gold:active { box-shadow: 0 1px 0 #92611A; }
+        .hanyang .hero-actions .cta-button { box-shadow: 0 0 0 2px rgb(255 255 255 / .8), 0 5px 0 rgb(31 20 66 / .32), 0 12px 24px rgb(31 20 66 / .2); }
+        .hanyang .hero-actions .cta-button--light { border-color: #FFFFFF; color: #5746C9; }
+        .hanyang .hero-actions .cta-button:hover { box-shadow: 0 0 0 2px #FFFFFF, 0 7px 0 rgb(31 20 66 / .32), 0 16px 28px rgb(31 20 66 / .24); }
+        .hanyang .hero-actions .cta-button:active { box-shadow: 0 0 0 2px #FFFFFF, 0 2px 0 rgb(31 20 66 / .32); }
+        .hanyang :is(.hero, .pricing-section, .final-section) :is(a, button):focus-visible { outline-color: #FFFFFF; }
+        .hanyang .pricing-section .plan-card :is(a, button):focus-visible { outline-color: #5746C9; }
+        .hanyang .header-cta { min-height: 46px; }
+        .hanyang .rpg-card { border: 1px solid #D8D1EF; border-radius: 15px; box-shadow: 0 5px 0 #ECE8F8, 0 12px 26px rgb(45 32 68 / .08); }
+        .hanyang .icon-box, .hanyang .benefit-icon { background: linear-gradient(135deg, #6C5CE7, #8B5CF6); border: 1px solid #5746C9; border-radius: 14px; box-shadow: 0 3px 0 #DDD7F7; color: #FFFFFF; }
+        .hanyang .benefit-icon i { color: #FFFFFF; }
+        .hanyang .benefit-item { background: #FFFFFF; border: 1px solid #D8D1EF; border-radius: 15px; box-shadow: 0 5px 0 #E5E0F6, 0 10px 22px rgb(45 32 68 / .05); }
+        .hanyang .benefit-item:last-child .benefit-icon { background: linear-gradient(135deg, #6C5CE7, #8B5CF6); }
+        .hanyang .benefits { background: #F3F2FB; border-block: 1px solid #E5E0F6; }
+        .hanyang .device-strip { border: 0; border-bottom: 1px solid #E5E0F6; }
+        .hanyang .device-item .icon-box { background: #FFFFFF; color: #5746C9; border: 1px solid #C8BFF2; border-radius: 12px; }
+        .hanyang .square-button, .hanyang .menu-toggle { min-width: 46px; min-height: 46px; color: #5746C9; border: 1px solid #B9ADEA; box-shadow: 0 3px 0 #E5E0F6; }
+        .hanyang .square-button:hover:enabled, .hanyang .menu-toggle:hover { background: #F0EDFF; border-color: #6C5CE7; }
+        .hanyang .site-nav { border-color: #E5E7EB; box-shadow: 0 6px 20px rgb(0 0 0 / .06); }
+        .hanyang .carousel-dot::before { border-color: #6C5CE7; background: #E0E7FF; }
+        .hanyang .testimonials { background: linear-gradient(135deg, #E0E7FF, #F3E8FF); }
+        .hanyang .story-stars { color: #A16207; }
+        .hanyang .story-author { border-top-color: #D8D1EF; }
+        .hanyang .story-avatar { border-color: #6C5CE7; }
+        .hanyang .pricing-section { background: linear-gradient(rgb(31 20 66 / .16), rgb(31 20 66 / .16)), var(--official-hero); border-top: 0; }
+        .hanyang .pricing-section .section-heading h2, .hanyang .pricing-section .section-heading p { color: #FFFFFF; }
+        .hanyang .plan-card { background: #FFFFFF; box-shadow: 0 6px 0 rgb(31 20 66 / .2), 0 20px 40px rgb(31 20 66 / .16); }
+        .hanyang .plan-card--premium { background: linear-gradient(180deg, #FFFFFF 0%, #FEFCE8 100%); border: 3px solid #10B981; border-radius: 20px; box-shadow: 0 0 0 4px rgb(255 255 255 / .8), 0 8px 0 rgb(31 20 66 / .24), 0 25px 50px rgb(31 20 66 / .2); }
+        .hanyang .plan-card--premium .plan-price strong, .hanyang .plan-card--premium .plan-features i { color: #059669; }
+        .hanyang .plan-recommended { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%); color: #1F2937; }
+        .hanyang .pricing-section .guarantee-note p, .hanyang .pricing-section .guarantee-note strong { color: #FFFFFF; }
+        .hanyang .pricing-section .guarantee-note i { color: #FFD700; }
+        .hanyang .final-section { background: linear-gradient(rgb(31 20 66 / .16), rgb(31 20 66 / .16)), var(--official-hero); border: 0; }
+        .hanyang .final-section h2 { color: #FFFFFF; }
+        .hanyang .final-section p { color: #FFFFFF; }
+        .hanyang .footer { background: linear-gradient(135deg, #2D3436, #636E72); color: #FFFFFF; }
+        .hanyang .footer .brand-caption, .hanyang .footer-links button { color: #ECEFF1; }
+        .hanyang .footer-links button:hover { color: #FFFFFF; }
+        .hanyang .footer-links .social-button { color: #2D3436; border: 0; }
+        .hanyang .availability-dialog { border-color: #E5E7EB; border-radius: 15px; box-shadow: 0 20px 60px rgb(0 0 0 / .15); }
+        /* Prints completos: dimensões intrínsecas evitam saltos de layout e distorção. */
+        .hanyang .hero > .container { display: grid; gap: 42px; }
+        .hanyang .hero-preview { max-width: 360px; width: 100%; margin: 0 auto; }
+        .hanyang .hero h1 { font-size: clamp(33px, 5.1vw, 60px); }
+        .hanyang .hero-actions { margin-top: 30px; gap: 16px; }
+        .hanyang .hero-actions .cta-button { font-size: 16px; }
+        .hanyang .hero .purchase-perks { gap: 12px 20px; margin-top: 24px; }
+        .hanyang .product-shot {
+            --shot-ratio: 794 / 1600;
+            position: relative; min-width: 0; width: 100%; max-width: 348px;
+            margin-inline: auto; padding: 8px; overflow: hidden; background: #FFFFFF;
+            border: 2px solid #45378B; border-radius: 20px;
+            box-shadow: 6px 6px 0 #D8D1EF, 0 18px 34px rgb(45 32 68 / .18);
+        }
+        .hanyang .product-shot--hero { max-width: 360px; border-color: #FFFFFF; box-shadow: 0 0 0 2px #45378B, 8px 8px 0 rgb(31 20 66 / .36), 0 22px 42px rgb(31 20 66 / .28); }
+        .hanyang .product-shot img { display: block; width: 100%; height: auto; border-radius: 10px; outline: 1px solid #C8BFAE; outline-offset: -1px; }
+        .hanyang #recursos { background: #F8F7FC; border-bottom: 1px solid #E5E0F6; }
+        .hanyang .feature-copy { border-left: 3px solid #6C5CE7; padding-left: 20px; }
+        .hanyang .feature-rows { gap: 52px; }
+        .hanyang .feature-row .product-shot { margin-block: 0 6px; }
+        .hanyang .faq-entry[open] { border-color: #6C5CE7; background: #F8F7FF; }
+        .hanyang .faq-entry summary:hover { background: #F3F0FF; }
+        .hanyang .faq-entry summary::after { border-color: #5746C9; width: 10px; height: 10px; }
+        .hanyang .availability-dialog::backdrop { background: rgb(31 20 66 / .65); }
+        .hanyang .shot-placeholder { display: none; min-height: 300px; padding: 28px; text-align: center; align-items: center; justify-content: center; color: #666666; }
+        .hanyang .product-shot.is-unavailable { aspect-ratio: var(--shot-ratio); }
+        .hanyang .product-shot.is-unavailable img { display: none; }
+        .hanyang .product-shot.is-unavailable .shot-placeholder { display: flex; height: 100%; }
+        @media (min-width: 1060px) {
+            .hanyang .site-nav { box-shadow: none; }
+            .hanyang .hero { padding-block: 58px 66px; }
+            .hanyang .hero > .container { grid-template-columns: minmax(0, 1.25fr) minmax(0, .8fr); gap: 64px; align-items: center; }
+            .hanyang .hero-copy { text-align: left; }
+            .hanyang .hero h1 { margin-inline: 0; font-size: clamp(44px, 4.1vw, 58px); text-wrap: balance; }
+            .hanyang .hero-subtitle { margin-inline: 0; font-size: 17px; }
+            .hanyang .hero-actions, .hanyang .hero .purchase-perks { justify-content: flex-start; }
+            .hanyang .hero-preview { max-width: 348px; }
+            .hanyang .feature-row { gap: 44px; padding: 32px; background: #FFFFFF; border: 1px solid #D8D1EF; border-radius: 24px; box-shadow: 0 5px 0 #ECE8F8; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .hanyang *, .hanyang *::before, .hanyang *::after { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body class="hanyang">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#inicio" aria-label="Hanyang RPG — início">
+                <span class="brand-mark rpg-type" aria-hidden="true">H</span>
+                <span><span class="brand-name rpg-type">Hanyang RPG</span><span class="brand-caption">Sua aventura no coreano</span></span>
+            </a>
+            <div class="header-actions">
+                <nav class="site-nav" id="menu" aria-label="Navegação principal">
+                    <a href="#como-funciona">Como funciona</a>
+                    <a href="#beneficios">Benefícios</a>
+                    <a href="#recursos">Recursos</a>
+                    <a href="#planos">Planos</a>
+                    <a href="#faq">FAQ</a>
+                    <a class="nav-mobile-cta" href="#planos">Começar agora <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </nav>
+                <a class="cta-button header-cta" href="#planos">Começar agora</a>
+                <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="hero paper-pattern" id="inicio" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-copy">
+                    <span class="rpg-tag rpg-type"><i class="far fa-star" aria-hidden="true"></i> NÍVEL 1 — COMECE A AVENTURA</span>
+                    <h1 id="hero-title">Aprenda coreano do zero de uma forma <span class="highlight">divertida e viciante.</span></h1>
+                    <p class="hero-subtitle">Domine o Hangul, vocabulário, gramática e pronúncia <strong>do português para o coreano</strong>, em uma aventura interativa criada para tornar o aprendizado muito mais leve e motivador.</p>
+                    <div class="hero-actions"><a class="cta-button" href="#planos">Começar agora <i class="fas fa-arrow-right" aria-hidden="true"></i></a><a class="cta-button cta-button--light" href="#como-funciona">Ver como funciona</a></div>
+                    <ul class="purchase-perks" aria-label="Condições de acesso"><li><i class="fas fa-fire" aria-hidden="true"></i> Pagamento único</li><li><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> Acesso vitalício</li><li><i class="far fa-star" aria-hidden="true"></i> Garantia de 7 dias</li></ul>
+                </div>
+                <div class="hero-preview">
+                    <span class="hero-float hero-float--alphabet rpg-tag rpg-tag--gold" lang="ko" aria-hidden="true">가 나 다</span>
+                    <figure class="product-shot product-shot--hero rpg-card">
+                        <img src="images/hanyang-mapa-coreia.png" alt="Mapa da Coreia no Hanyang RPG, com capítulos em Seul, Gyeonggi, Busan, Jeju e no Palácio Real" width="794" height="1600" fetchpriority="high" decoding="async">
+                        <figcaption class="shot-placeholder">A prévia do mapa da Coreia estará disponível em breve.</figcaption>
+                    </figure>
+                    <span class="hero-float hero-float--xp rpg-tag rpg-tag--green rpg-type" aria-hidden="true">+50 EXP</span>
+                </div>
+            </div>
+        </section>
+
+        <aside class="device-strip" aria-label="Estude onde e quando quiser">
+            <div class="container device-grid">
+                <div class="device-item"><span class="icon-box"><i class="fas fa-laptop" aria-hidden="true"></i></span><div><h3>Funciona em qualquer dispositivo</h3><p>Computador, tablet ou celular.</p></div></div>
+                <div class="device-item"><span class="icon-box"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></span><div><h3>Estude onde e quando quiser</h3><p>Lições curtas que cabem no dia.</p></div></div>
+                <div class="device-item"><span class="icon-box"><i class="far fa-floppy-disk" aria-hidden="true"></i></span><div><h3>Seu progresso sempre salvo</h3><p>Continue de onde parou, em segundos.</p></div></div>
+            </div>
+        </aside>
+
+        <section class="section" id="como-funciona" aria-labelledby="journey-title">
+            <div class="container">
+                <div class="section-heading"><span class="rpg-tag rpg-type">A JORNADA</span><h2 id="journey-title">Veja como funciona cada etapa<br> da sua jornada no coreano.</h2><p>Cada fase foi desenhada para você evoluir naturalmente, sem se sentir perdido. Do português para o coreano, um passo de cada vez.</p></div>
+                <div class="journey-track" id="jornada" role="region" aria-roledescription="carrossel" aria-label="Etapas do aprendizado" tabindex="0">
+                    <article class="journey-card rpg-card" id="etapa-1" aria-label="Etapa 1 de 5">
+                        <figure class="screen-mockup" data-mockup="hangul" aria-label="Mockup de uma lição de Hangul"><div class="screen-heading rpg-type" aria-hidden="true">APRENDA HANGUL</div><div class="hangul-tile" aria-hidden="true"><span class="hangul-letter" lang="ko">가</span><span class="hangul-sound rpg-type">GA</span></div><figcaption class="mock-bottom">Mockup · primeiros sons e letras</figcaption></figure>
+                        <div class="stage-copy"><span class="stage-number rpg-type">ETAPA 01</span><h3>Comece pelo Hangul</h3><p>Conheça o alfabeto coreano e forme suas primeiras sílabas.</p></div>
+                    </article>
+                    <article class="journey-card rpg-card" id="etapa-2" aria-label="Etapa 2 de 5">
+                        <figure class="screen-mockup" data-mockup="silabas" aria-label="Mockup de cartões de sílabas coreanas"><div class="screen-heading rpg-type" aria-hidden="true">CONECTE AS SÍLABAS</div><div class="tile-grid" aria-hidden="true"><span class="mini-tile"><b lang="ko">가</b><small>ga</small></span><span class="mini-tile"><b lang="ko">나</b><small>na</small></span><span class="mini-tile"><b lang="ko">다</b><small>da</small></span><span class="mini-tile"><b lang="ko">마</b><small>ma</small></span><span class="mini-tile"><b lang="ko">바</b><small>ba</small></span><span class="mini-tile"><b lang="ko">사</b><small>sa</small></span></div><figcaption class="mock-bottom">Mockup · leitura e escrita</figcaption></figure>
+                        <div class="stage-copy"><span class="stage-number rpg-type">ETAPA 02</span><h3>Junte letras. Descubra palavras.</h3><p>Pratique combinações e ganhe confiança para ler em coreano.</p></div>
+                    </article>
+                    <article class="journey-card rpg-card" id="etapa-3" aria-label="Etapa 3 de 5">
+                        <figure class="screen-mockup" data-mockup="vocabulario" aria-label="Mockup de cartões de vocabulário"><div class="screen-heading rpg-type" aria-hidden="true">PALAVRAS DO DIA A DIA</div><div class="tile-grid" aria-hidden="true"><span class="mini-tile"><b lang="ko">집</b><small>casa</small></span><span class="mini-tile"><b lang="ko">물</b><small>água</small></span><span class="mini-tile"><b lang="ko">책</b><small>livro</small></span><span class="mini-tile"><b lang="ko">밥</b><small>arroz</small></span><span class="mini-tile"><b lang="ko">달</b><small>lua</small></span><span class="mini-tile"><b lang="ko">문</b><small>porta</small></span></div><figcaption class="mock-bottom">Mockup · seu inventário de palavras</figcaption></figure>
+                        <div class="stage-copy"><span class="stage-number rpg-type">ETAPA 03</span><h3>Monte seu vocabulário</h3><p>Aprenda palavras e expressões que fazem parte da vida real.</p></div>
+                    </article>
+                    <article class="journey-card rpg-card" id="etapa-4" aria-label="Etapa 4 de 5">
+                        <figure class="screen-mockup" data-mockup="desafios" aria-label="Mockup de um exercício de coreano"><div class="screen-heading rpg-type" aria-hidden="true">MISSÃO: PRIMEIRAS FRASES</div><div class="mock-question" aria-hidden="true" lang="ko">안녕하세요!</div><div class="mock-answers" aria-hidden="true"><span>1. Até amanhã</span><span class="correct">2. Olá! <i class="fas fa-check"></i></span><span>3. Obrigado</span><span>4. Boa noite</span></div><figcaption class="mock-bottom">Mockup · cada acerto, uma conquista</figcaption></figure>
+                        <div class="stage-copy"><span class="stage-number rpg-type">ETAPA 04</span><h3>Aprenda praticando</h3><p>Transforme o que aprendeu em frases, quizzes e novas conquistas.</p></div>
+                    </article>
+                    <article class="journey-card rpg-card" id="etapa-5" aria-label="Etapa 5 de 5">
+                        <figure class="screen-mockup" data-mockup="revisao" aria-label="Mockup de uma revisão de vocabulário"><div class="screen-heading rpg-type" aria-hidden="true">REVISÃO INTELIGENTE</div><div class="review-word" aria-hidden="true"><b lang="ko">학교</b><span>escola</span></div><div class="review-buttons" aria-hidden="true"><span>FÁCIL</span><span>BOM</span><span>DIFÍCIL</span></div><figcaption class="mock-bottom">Mockup · reforce sua memória</figcaption></figure>
+                        <div class="stage-copy"><span class="stage-number rpg-type">ETAPA 05</span><h3>Revisão inteligente</h3><p>Revisite o que aprendeu e fortaleça sua memória a cada missão.</p></div>
+                    </article>
+                </div>
+                <div class="carousel-controls"><button class="square-button" type="button" id="journey-prev" aria-label="Etapa anterior" aria-controls="jornada" disabled><i class="fas fa-chevron-left" aria-hidden="true"></i></button><div class="carousel-dots" aria-label="Escolha uma etapa"><button class="carousel-dot" type="button" data-slide="0" aria-label="Ir para etapa 1" aria-controls="jornada" aria-current="true"></button><button class="carousel-dot" type="button" data-slide="1" aria-label="Ir para etapa 2" aria-controls="jornada" aria-current="false"></button><button class="carousel-dot" type="button" data-slide="2" aria-label="Ir para etapa 3" aria-controls="jornada" aria-current="false"></button><button class="carousel-dot" type="button" data-slide="3" aria-label="Ir para etapa 4" aria-controls="jornada" aria-current="false"></button><button class="carousel-dot" type="button" data-slide="4" aria-label="Ir para etapa 5" aria-controls="jornada" aria-current="false"></button></div><button class="square-button" type="button" id="journey-next" aria-label="Próxima etapa" aria-controls="jornada"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div>
+                <p class="sr-only" id="journey-status" role="status" aria-live="polite">Etapa 1 de 5: Comece pelo Hangul</p>
+            </div>
+        </section>
+
+        <section class="section benefits" id="beneficios" aria-labelledby="benefits-title">
+            <div class="container">
+                <div class="section-heading"><span class="rpg-tag rpg-type">INVENTÁRIO</span><h2 id="benefits-title">Tudo o que você precisa para<br> aprender coreano em um único lugar.</h2></div>
+                <div class="benefits-grid">
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-language" aria-hidden="true"></i></div><h3>Aprenda o Hangul</h3><p>Do primeiro traço às primeiras palavras.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-border-all" aria-hidden="true"></i></div><h3>Domine as sílabas</h3><p>Conecte letras e descubra como ler.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-scroll" aria-hidden="true"></i></div><h3>Expressões essenciais</h3><p>Saudações e frases para a vida real.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-book-open" aria-hidden="true"></i></div><h3>Vocabulário do dia a dia</h3><p>Palavras que você usa de verdade.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i></div><h3>Gramática simplificada</h3><p>Explicações curtas e sem jargão.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-gamepad" aria-hidden="true"></i></div><h3>Exercícios interativos</h3><p>Praticar vira parte do jogo.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-headphones" aria-hidden="true"></i></div><h3>Áudio nas lições</h3><p>Ouça, repita e pratique a pronúncia.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-brain" aria-hidden="true"></i></div><h3>Revisão inteligente</h3><p>Reforce o que aprendeu na hora certa.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-arrow-trend-up" aria-hidden="true"></i></div><h3>Sistema de progresso</h3><p>EXP, níveis e novas conquistas.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-stopwatch" aria-hidden="true"></i></div><h3>Aprenda no seu ritmo</h3><p>Uma missão de cada vez, todos os dias.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></div><h3>Em qualquer dispositivo</h3><p>Celular, tablet ou computador.</p></article>
+                    <article class="benefit-item"><div class="benefit-icon"><i class="fas fa-rocket" aria-hidden="true"></i></div><h3>Experiência envolvente</h3><p>Um novo motivo para continuar aprendendo.</p></article>
+                </div>
+                <div class="section-cta"><a class="cta-button" href="#planos">Começar agora</a></div>
+            </div>
+        </section>
+
+        <section class="section" id="recursos" aria-labelledby="features-title">
+            <div class="container">
+                <div class="section-heading"><span class="rpg-tag rpg-type">RECURSOS</span><h2 id="features-title">Por dentro da plataforma</h2></div>
+                <div class="feature-rows">
+                    <article class="feature-row">
+                        <div class="feature-copy"><span class="rpg-tag rpg-tag--green rpg-type">BIBLIOTECA</span><h3>Uma biblioteca de lições<br> organizada como um mapa</h3><p>Trilhas claras de Hangul, vocabulário e gramática. Explore Hanyang enquanto aprende e saiba sempre qual é o próximo passo.</p></div>
+                        <figure class="product-shot rpg-card"><img src="images/hanyang-grimorio.png" alt="Biblioteca do Hanyang RPG com a jornada de Seul e suas lições organizadas por fase" width="794" height="1600" loading="lazy" decoding="async"><figcaption class="shot-placeholder">A prévia da biblioteca estará disponível em breve.</figcaption></figure>
+                    </article>
+                    <article class="feature-row">
+                        <div class="feature-copy"><span class="rpg-tag rpg-tag--green rpg-type">PRÁTICA</span><h3>Exercícios e minijogos<br> que fixam de verdade</h3><p>Quizzes, associação, leitura e desafios. Coloque seu conhecimento em jogo, ganhe EXP e celebre cada nova conquista.</p></div>
+                        <figure class="product-shot rpg-card" style="--shot-ratio: 792 / 1600"><img src="images/hanyang-pratica-hangul.png" alt="Exercício de digitação em Hangul com teclado coreano e recompensa de experiência" width="792" height="1600" loading="lazy" decoding="async"><figcaption class="shot-placeholder">A prévia dos exercícios estará disponível em breve.</figcaption></figure>
+                    </article>
+                    <article class="feature-row">
+                        <div class="feature-copy"><span class="rpg-tag rpg-tag--green rpg-type">MEMÓRIA</span><h3>Revisão inteligente<br> no momento certo</h3><p>Volte às palavras que precisam de atenção. Uma rotina de revisão ajuda a transformar suas descobertas em conhecimento que fica.</p></div>
+                        <figure class="product-shot rpg-card" style="--shot-ratio: 792 / 1600"><img src="images/hanyang-revisao-srs.png" alt="Revisão SRS de vocabulário com pronúncia, tradução e opções fácil, bom, difícil e esqueci" width="792" height="1600" loading="lazy" decoding="async"><figcaption class="shot-placeholder">A prévia da revisão estará disponível em breve.</figcaption></figure>
+                    </article>
+                    <article class="feature-row">
+                        <div class="feature-copy"><span class="rpg-tag rpg-tag--green rpg-type">ÁUDIO</span><h3>O som do coreano<br> acompanha cada descoberta</h3><p>Ouça, repita e pratique. Explore palavras e expressões com áudio para conectar o que você lê à forma de falar.</p></div>
+                        <figure class="product-shot rpg-card" style="--shot-ratio: 793 / 1599"><img src="images/hanyang-pronuncia-voz.png" alt="Lição da vogal coreana com botão de ouvir pronúncia e exemplos de palavras" width="793" height="1599" loading="lazy" decoding="async"><figcaption class="shot-placeholder">A prévia de pronúncia estará disponível em breve.</figcaption></figure>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos são espaços reservados. Inserir relatos autorizados de alunos reais antes de publicar. -->
+        <section class="section testimonials" aria-labelledby="stories-title">
+            <div class="container">
+                <div class="section-heading"><span class="rpg-tag rpg-type">NOSSA PARTY</span><h2 id="stories-title">Cada aluno, uma nova jornada.</h2><p>Em breve, histórias de quem está descobrindo o coreano com o Hanyang RPG.</p></div>
+                <div class="testimonials-grid">
+                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">☆☆☆☆☆</div><p>Este espaço está reservado para um relato real sobre os primeiros passos no coreano.</p><div class="story-author"><span class="story-avatar rpg-type" aria-hidden="true">01</span><div><strong>Seu primeiro Hangul</strong><small>Depoimento em breve</small></div></div></article>
+                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">☆☆☆☆☆</div><p>Este espaço está reservado para um relato real sobre a rotina de estudo e as descobertas do dia a dia.</p><div class="story-author"><span class="story-avatar rpg-type" aria-hidden="true">02</span><div><strong>Uma missão por dia</strong><small>Depoimento em breve</small></div></div></article>
+                    <article class="story-card rpg-card"><div class="story-stars" aria-hidden="true">☆☆☆☆☆</div><p>Este espaço está reservado para um relato real sobre a experiência de aprender em uma aventura.</p><div class="story-author"><span class="story-avatar rpg-type" aria-hidden="true">03</span><div><strong>Aprender e evoluir</strong><small>Depoimento em breve</small></div></div></article>
+                </div>
+                <div class="section-cta"><a class="cta-button cta-button--gold" href="#planos">Começar agora</a></div>
+            </div>
+        </section>
+
+        <section class="section bonus-section" id="bonus" aria-labelledby="bonus-title">
+            <div class="container">
+                <div class="section-heading"><span class="rpg-tag rpg-type">5 BÔNUS EXCLUSIVOS</span><h2 id="bonus-title">Tudo isso vem junto<br> no plano Premium</h2><p>Organize seus estudos, pratique o Hangul e descubra mais sobre a Coreia com cinco materiais que acompanham sua jornada.</p></div>
+                <div class="bonus-grid">
+                    <article class="bonus-card rpg-card" aria-labelledby="bonus-planner-title">
+                        <figure class="bonus-preview"><img src="images/hanyang-bonus-planner-estudos.webp" alt="Planner de Hangul com cronograma semanal, foco da semana, meta e checklist de estudos" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+                        <div class="bonus-copy"><div class="bonus-label"><span class="icon-box"><i class="fas fa-calendar-alt" aria-hidden="true"></i></span><span class="rpg-tag rpg-type">BÔNUS 1</span></div><h3 id="bonus-planner-title">Planner de Estudos</h3><p>Organize sua semana com metas de leitura, escrita e revisão. Um roteiro simples para transformar o estudo do Hangul em hábito.</p></div>
+                    </article>
+                    <article class="bonus-card rpg-card" aria-labelledby="bonus-caligrafia-title">
+                        <figure class="bonus-preview"><img src="images/hanyang-bonus-caderno-caligrafia.webp" alt="Caderno de caligrafia de Hangul com ordem dos traços e espaços para praticar letras e blocos silábicos" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+                        <div class="bonus-copy"><div class="bonus-label"><span class="icon-box"><i class="fas fa-pen-nib" aria-hidden="true"></i></span><span class="rpg-tag rpg-type">BÔNUS 2</span></div><h3 id="bonus-caligrafia-title">Caderno de Caligrafia</h3><p>Pratique a ordem dos traços e a formação de sílabas com exercícios guiados. Ganhe confiança para escrever suas primeiras palavras em Hangul.</p></div>
+                    </article>
+                    <article class="bonus-card rpg-card" aria-labelledby="bonus-viagem-title">
+                        <figure class="bonus-preview"><img src="images/hanyang-bonus-guia-viagem.webp" alt="Guia de viagem à Coreia do Sul com destinos em Seul, templos, palácios, gastronomia e cultura" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+                        <div class="bonus-copy"><div class="bonus-label"><span class="icon-box"><i class="fas fa-plane" aria-hidden="true"></i></span><span class="rpg-tag rpg-type">BÔNUS 3</span></div><h3 id="bonus-viagem-title">Guia de Viagem à Coreia do Sul</h3><p>Explore Seul, templos, palácios e costumes locais. Descubra destinos e experiências que conectam o idioma à cultura coreana.</p></div>
+                    </article>
+                    <article class="bonus-card rpg-card" aria-labelledby="bonus-flashcards-title">
+                        <figure class="bonus-preview"><img src="images/hanyang-bonus-80-flashcards.webp" alt="Pack de 80 flashcards imprimíveis com palavras em coreano, pronúncia e tradução em português" width="1448" height="1086" loading="lazy" decoding="async"></figure>
+                        <div class="bonus-copy"><div class="bonus-label"><span class="icon-box"><i class="fas fa-clone" aria-hidden="true"></i></span><span class="rpg-tag rpg-type">BÔNUS 4</span></div><h3 id="bonus-flashcards-title">Pack de 80 Flashcards Imprimíveis</h3><p>Imprima seus cartões e leve o vocabulário com você. Revise palavras do cotidiano e expressões afetivas com pronúncia e tradução em português.</p></div>
+                    </article>
+                    <article class="bonus-card rpg-card" aria-labelledby="bonus-culinaria-title">
+                        <figure class="bonus-preview"><img src="images/hanyang-bonus-guia-culinaria.webp" alt="Guia de culinária tradicional coreana com bulgogi, japchae, mandu e tteokbokki" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+                        <div class="bonus-copy"><div class="bonus-label"><span class="icon-box"><i class="fas fa-utensils" aria-hidden="true"></i></span><span class="rpg-tag rpg-type">BÔNUS 5</span></div><h3 id="bonus-culinaria-title">Guia de Culinária Tradicional</h3><p>Conheça clássicos como bulgogi, japchae, mandu e tteokbokki. Explore novos sabores e descubra a Coreia também pela sua cozinha.</p></div>
+                    </article>
+                </div>
+                <div class="section-cta"><a class="cta-button" href="#planos">Quero o Premium <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>
+            </div>
+        </section>
+
+        <!-- Valores provisórios reproduzem a referência: confirmar os preços do Hanyang RPG. -->
+        <section class="section pricing-section paper-pattern" id="planos" aria-labelledby="plans-title">
+            <div class="container">
+                <div class="section-heading"><span class="rpg-tag rpg-type">PAGAMENTO ÚNICO</span><h2 id="plans-title">Escolha o seu acesso vitalício</h2><p>Sem mensalidade e sem renovação: você paga uma única vez e a aventura continua.</p></div>
+                <div class="plan-grid">
+                    <article class="plan-card rpg-card" aria-labelledby="basic-title"><h3 class="rpg-tag rpg-tag--light rpg-type" id="basic-title">BÁSICO</h3><div class="plan-price"><strong data-price="basic">R$ 17,90</strong><span>pagamento único</span></div><p class="plan-description">Seu primeiro passo para aprender coreano em uma nova aventura.</p><ul class="plan-features"><li><i class="fas fa-check" aria-hidden="true"></i><span>Acesso vitalício à plataforma de coreano</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Hangul, sílabas e expressões essenciais</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Vocabulário, gramática e áudio</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Exercícios, revisão e sistema de progresso</span></li></ul><a class="cta-button cta-button--light" href="#aviso-acesso" data-checkout="basic">Começar agora</a><p class="plan-footer"><i class="fas fa-shield-halved" aria-hidden="true"></i> Acesso vitalício · Garantia de 7 dias</p></article>
+                    <article class="plan-card plan-card--premium rpg-card" aria-labelledby="premium-title"><span class="plan-recommended rpg-tag rpg-tag--gold rpg-type">AVENTURA COMPLETA</span><h3 class="rpg-tag rpg-type" id="premium-title">PREMIUM</h3><div class="plan-price"><strong data-price="premium">R$ 27,90</strong><span>pagamento único</span></div><p class="plan-description">Acesso vitalício à plataforma completa + os bônus exclusivos.</p><ul class="plan-features"><li><i class="fas fa-check" aria-hidden="true"></i><span>Tudo o que está no plano Básico</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 1: Planner de Estudos</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 2: Caderno de Caligrafia</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 3: Guia de Viagem à Coreia do Sul</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 4: Pack de 80 Flashcards Imprimíveis</span></li><li><i class="fas fa-check" aria-hidden="true"></i><span>Bônus 5: Guia de Culinária Tradicional</span></li></ul><a class="cta-button" href="#aviso-acesso" data-checkout="premium">Começar agora</a><p class="plan-footer"><i class="fas fa-shield-halved" aria-hidden="true"></i> Pagamento único · Sem mensalidade</p></article>
+                </div>
+                <div class="guarantee-note"><i class="fas fa-shield-halved" aria-hidden="true"></i><p><strong>Sua aventura começa com tranquilidade.</strong><br>Você tem 7 dias de garantia para conhecer o Hanyang RPG.</p></div>
+            </div>
+        </section>
+
+        <section class="section" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-heading"><span class="rpg-tag rpg-type">FAQ</span><h2 id="faq-title">Perguntas frequentes</h2></div>
+                <div class="faq-list">
+                    <details class="faq-entry rpg-card"><summary>O aprendizado é do português para o coreano?</summary><p>Sim. As explicações são em português, e a jornada apresenta o coreano passo a passo: do Hangul às palavras e às primeiras frases.</p></details>
+                    <details class="faq-entry rpg-card"><summary>É mensalidade?</summary><p>Não. Os planos têm pagamento único e acesso vitalício. Você escolhe seu plano uma vez e continua sua jornada, sem cobrança mensal.</p></details>
+                    <details class="faq-entry rpg-card"><summary>Funciona para quem está começando do zero?</summary><p>Sim. A primeira etapa apresenta o Hangul, o alfabeto coreano. Você começa pelos sons e letras e avança gradualmente para palavras, frases e exercícios.</p></details>
+                    <details class="faq-entry rpg-card"><summary>Posso estudar pelo celular?</summary><p>Sim. A plataforma pode ser acessada pelo navegador no celular, tablet ou computador. Escolha o dispositivo que combina com sua rotina e continue de onde parou.</p></details>
+                    <details class="faq-entry rpg-card"><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia após a compra. Nesse período, pode conhecer a plataforma e solicitar o reembolso pelo canal de atendimento informado no comprovante da compra.</p></details>
+                </div>
+                <div class="section-cta"><a class="cta-button" href="#planos">Começar agora</a></div>
+            </div>
+        </section>
+
+        <section class="final-section" aria-labelledby="final-title">
+            <div class="container"><span class="rpg-tag rpg-tag--gold rpg-type">SUA PRÓXIMA MISSÃO</span><h2 id="final-title">Comece hoje mesmo<br> sua jornada no coreano.</h2><p>Pagamento único, acesso vitalício e garantia de 7 dias. Dê o primeiro passo para aprender coreano de forma simples, organizada e cheia de descobertas.</p><a class="cta-button cta-button--gold" href="#planos">Começar agora</a>
+                <!-- Ornamento vetorial ilustrativo de um portão coreano, substituível pela arte final. -->
+                <svg class="palace-mark" viewBox="0 0 160 115" fill="none" aria-hidden="true"><path d="M13 29Q35 33 49 22H111Q125 33 147 29L136 40H24L13 29Z" fill="currentColor" stroke="#3e281a" stroke-width="3"/><path d="M33 19Q58 21 80 6Q102 21 127 19L114 28H46L33 19Z" fill="#f6e4bd" stroke="#3e281a" stroke-width="3"/><path d="M40 40V102M120 40V102" stroke="#3e281a" stroke-width="12"/><path d="M40 40V99M120 40V99" stroke="#c6864b" stroke-width="6"/><path d="M33 49H127M44 63H116" stroke="currentColor" stroke-width="6"/><path d="M56 65V99H104V65" stroke="#3e281a" stroke-width="3" fill="#6b2726"/><path d="M80 66V98" stroke="currentColor" stroke-width="2"/><circle cx="75" cy="83" r="2" fill="currentColor"/><circle cx="85" cy="83" r="2" fill="currentColor"/><path d="M29 103H131M25 110H135" stroke="#d8c3a0" stroke-width="6"/></svg>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="rodape">
+        <div class="container footer-content"><a class="brand" href="#inicio" aria-label="Hanyang RPG — voltar ao início"><span class="brand-mark rpg-type" aria-hidden="true">H</span><span><span class="brand-name rpg-type">Hanyang RPG</span><span class="brand-caption">© 2026 — Todos os direitos reservados</span></span></a><nav class="footer-links" aria-label="Informações e contato"><button type="button" data-info="privacy">Política de Privacidade</button><button type="button" data-info="terms">Termos de Uso</button><button type="button" data-info="contact">Contato</button><button class="square-button social-button" type="button" data-info="social" aria-label="Instagram do Hanyang RPG"><i class="fab fa-instagram" aria-hidden="true"></i></button></nav></div>
+    </footer>
+
+    <dialog class="availability-dialog" id="aviso-acesso" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+        <span class="rpg-tag rpg-type">HANYANG RPG</span><h2 id="dialog-title">Sua aventura está chegando</h2><p id="dialog-description">A compra ainda não está disponível nesta página. Volte em breve para começar sua jornada no coreano.</p><form method="dialog"><button class="cta-button" type="submit" autofocus>Entendi</button></form>
+    </dialog>
+
+    <noscript><style>.hanyang .site-nav { position: static; display: flex; flex-wrap: wrap; border: 0; box-shadow: none; padding: 12px 0; gap: 6px; }.hanyang .header-inner,.hanyang .header-actions { flex-wrap: wrap; }.hanyang .menu-toggle,.hanyang .carousel-controls { display: none; }.hanyang .availability-dialog:target { display: block; position: fixed; inset: 0; z-index: 50; }</style></noscript>
+    <script>
+        (() => {
+            'use strict';
+            // CONFIGURAÇÃO: preencher com os links dos planos deste produto, quando fornecidos.
+            // Os checkouts de index.html vendem outro produto e não são reutilizados aqui.
+            const checkoutUrls = { basic: '', premium: '' };
+            const infoUrls = { privacy: '', terms: '', contact: '', social: '' };
+            const menuButton = document.querySelector('.menu-toggle');
+            const navigation = document.getElementById('menu');
+            const desktopQuery = window.matchMedia('(min-width: 1060px)');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            document.querySelectorAll('.product-shot img').forEach(image => {
+                const showPlaceholder = () => image.closest('.product-shot').classList.add('is-unavailable');
+                image.addEventListener('error', showPlaceholder, { once: true });
+                if (image.complete && image.naturalWidth === 0) showPlaceholder();
+            });
+
+            function setMenu(open) {
+                navigation.classList.toggle('is-open', open);
+                menuButton.setAttribute('aria-expanded', String(open));
+                menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+                menuButton.querySelector('i').className = open ? 'fas fa-xmark' : 'fas fa-bars';
+            }
+            menuButton.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+            navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+            document.addEventListener('click', event => {
+                if (!event.target.closest('.site-header')) setMenu(false);
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+                    setMenu(false);
+                    menuButton.focus();
+                }
+            });
+            desktopQuery.addEventListener('change', () => setMenu(false));
+
+            const track = document.getElementById('jornada');
+            const slides = Array.from(track.querySelectorAll('.journey-card'));
+            const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+            const previous = document.getElementById('journey-prev');
+            const next = document.getElementById('journey-next');
+            const status = document.getElementById('journey-status');
+            let activeSlide = 0;
+            let scrollFrame = 0;
+            let requestedSlide = null;
+
+            function slideLeft(slide) {
+                return Math.round(slide.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft);
+            }
+            function syncCarousel() {
+                const maxScroll = track.scrollWidth - track.clientWidth;
+                const positions = slides.map(slide => Math.min(slideLeft(slide), maxScroll));
+                const distances = positions.map(position => Math.abs(position - track.scrollLeft));
+                let closest = distances.indexOf(Math.min(...distances));
+                if (requestedSlide !== null && distances[requestedSlide] < 3) closest = requestedSlide;
+                else if (maxScroll > 0 && track.scrollLeft >= maxScroll - 3) closest = slides.length - 1;
+                activeSlide = closest;
+                dots.forEach((dot, index) => dot.setAttribute('aria-current', String(index === activeSlide)));
+                previous.disabled = activeSlide === 0;
+                next.disabled = activeSlide === slides.length - 1;
+                const label = `Etapa ${activeSlide + 1} de ${slides.length}: ${slides[activeSlide].querySelector('h3').textContent}`;
+                if (status.textContent !== label) status.textContent = label;
+            }
+            function goToSlide(index) {
+                requestedSlide = Math.max(0, Math.min(index, slides.length - 1));
+                const maxScroll = track.scrollWidth - track.clientWidth;
+                track.scrollTo({ left: Math.min(slideLeft(slides[requestedSlide]), maxScroll), behavior: reduceMotion.matches ? 'instant' : 'smooth' });
+                syncCarousel();
+            }
+            previous.addEventListener('click', () => goToSlide(activeSlide - 1));
+            next.addEventListener('click', () => goToSlide(activeSlide + 1));
+            dots.forEach((dot, index) => dot.addEventListener('click', () => goToSlide(index)));
+            track.addEventListener('keydown', event => {
+                if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    goToSlide(activeSlide + (event.key === 'ArrowRight' ? 1 : -1));
+                }
+                if (event.key === 'Home' || event.key === 'End') {
+                    event.preventDefault();
+                    goToSlide(event.key === 'Home' ? 0 : slides.length - 1);
+                }
+            });
+            track.addEventListener('pointerdown', () => { requestedSlide = null; }, { passive: true });
+            track.addEventListener('wheel', () => { requestedSlide = null; }, { passive: true });
+            track.addEventListener('scroll', () => {
+                cancelAnimationFrame(scrollFrame);
+                scrollFrame = requestAnimationFrame(syncCarousel);
+            }, { passive: true });
+            const resizeObserver = new ResizeObserver(() => { requestedSlide = null; syncCarousel(); });
+            resizeObserver.observe(track);
+            syncCarousel();
+
+            const dialog = document.getElementById('aviso-acesso');
+            function showNotice(title, description) {
+                document.getElementById('dialog-title').textContent = title;
+                document.getElementById('dialog-description').textContent = description;
+                dialog.showModal();
+            }
+            dialog.addEventListener('click', event => {
+                const rect = dialog.getBoundingClientRect();
+                if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+            });
+            document.querySelectorAll('[data-checkout]').forEach(link => {
+                const plan = link.dataset.checkout;
+                const checkoutUrl = checkoutUrls[plan];
+                if (checkoutUrl) {
+                    const destination = new URL(checkoutUrl);
+                    // Preserva parâmetros de campanha, sem substituir os parâmetros do checkout.
+                    new URLSearchParams(window.location.search).forEach((value, key) => {
+                        if (/^(utm_[a-z_]+|src|sck|fbclid|gclid|ttclid)$/.test(key) && !destination.searchParams.has(key)) destination.searchParams.set(key, value);
+                    });
+                    link.href = destination.toString();
+                } else {
+                    link.addEventListener('click', event => {
+                        event.preventDefault();
+                        showNotice(`Plano ${plan === 'basic' ? 'Básico' : 'Premium'}`, 'A compra ainda não está disponível nesta página. Volte em breve para começar sua jornada no coreano.');
+                    });
+                }
+            });
+            const infoNotices = {
+                privacy: ['Política de Privacidade', 'A política de privacidade do Hanyang RPG estará disponível aqui em breve.'],
+                terms: ['Termos de Uso', 'Os termos de uso do Hanyang RPG estarão disponíveis aqui em breve.'],
+                contact: ['Fale com o Hanyang RPG', 'Nosso canal de atendimento será disponibilizado em breve.'],
+                social: ['Hanyang RPG no Instagram', 'Em breve, acompanhe nossas novidades e descobertas no Instagram.']
+            };
+            document.querySelectorAll('[data-info]').forEach(button => button.addEventListener('click', () => {
+                const key = button.dataset.info;
+                if (infoUrls[key]) window.location.assign(infoUrls[key]);
+                else showNotice(...infoNotices[key]);
+            }));
+        })();
+    </script>
+</body>
+</html>
